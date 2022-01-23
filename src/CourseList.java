@@ -57,7 +57,7 @@ public class CourseList {
         return list[i].getFactuly();
     }
     public void showCourse(){
-      for (int i = 0;i<=emptyHomeIndex;i++){
+      for (int i = 0;i<emptyHomeIndex;i++){
           System.out.println("name: "+list[i].getName());
           System.out.println("faculty: "+list[i].getFactuly());
           System.out.println("id: "+list[i].getId());
