@@ -1,3 +1,5 @@
+
+
 public class StudentList {
     private Student[] list;
     private int emptyHomeIndex;

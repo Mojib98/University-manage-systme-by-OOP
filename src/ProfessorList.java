@@ -1,3 +1,4 @@
+
 public class ProfessorList {
     private Professor[] list;
     private int emptyHomeIndex;

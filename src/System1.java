@@ -1,5 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
+import java.util.InputMismatchException;
+
 
 public class System1 {
     // EmplyeeList emplyeeList = new EmplyeeList();
@@ -103,6 +105,7 @@ public class System1 {
                     break;
 
                 case 7:
+                    try:{
                     System.out.println("plese insert course name");
                     this.name = scanner.next();
                     System.out.println("please insert unit insert integer");
@@ -114,12 +117,25 @@ public class System1 {
                     int ids = (rand.nextInt(1000));
                     system0.insertCourse(ids, this.name, unit, pro, fc);
                     break;
+                }
+                    catch(InputMismatchException e){
+                    System.out.println("your unit course is not true");
+                }
 
                 case 8:
-                    System.out.println("insert id course");
-                    int ide = scanner.nextInt();
-                    system0.removeCourse(ide);
-                    break;
+                    try {
+
+
+                        System.out.println("insert id course");
+                        int ide = scanner.nextInt();
+                        system0.removeCourse(ide);
+                        break;
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("your unit course is not true");
+                    }
+
+
                 case 9:
                     System.out.printf("please insert id");
                     String nowId=scanner.next();
@@ -142,11 +158,18 @@ public class System1 {
                     system0.changeNatianalCodeProfessor(this.id,this.nationalCode);
                     break;
                 case 12:
-                    System.out.printf("please insert id course");
-                    int d =scanner.nextInt();
-                    System.out.printf("please insert new professor");
-                    String p =scanner.next();
-                    system0.changeProfessorCourse(d,p);
+                    try {
+
+                        System.out.printf("please insert id course");
+                        int d = scanner.nextInt();
+                        System.out.printf("please insert new professor");
+                        String p = scanner.next();
+                        system0.changeProfessorCourse(d, p);
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("your unit course is not true");
+                    }
+
                 case 13:
                     system0.informationEmployee(user);
                     system0.salary(user);
@@ -209,14 +232,22 @@ public class System1 {
                     system0.showInformationProfessor(id);
                     break;
                 case 2:
-                    system0.showMyStudent(fc);
-                    System.out.println("insert id of student");
-                    select1 = scanner.next();
-                    System.out.println();
-                    System.out.println("please insert Score");
-                    score=scanner.nextDouble();
-                    system0.insertScore(score,select1);
-                    break;
+                    try {
+
+                        system0.showMyStudent(fc);
+                        System.out.println("insert id of student");
+                        select1 = scanner.next();
+                        System.out.println();
+                        System.out.println("please insert Score");
+                        score = scanner.nextDouble();
+                        system0.insertScore(score, select1);
+                        break;
+                    }
+                    catch(InputMismatchException e){
+                        System.out.println("your unit course is not true");
+                    }
+
+
                 case 3:
                     system0.salary(this.user);
                     break;

@@ -1,3 +1,4 @@
+
 import java.util.*;
 public class Course {
     private int id;

@@ -1,3 +1,4 @@
+
 public class Professor extends Employee {
     private String status;
     private String faculty;
