@@ -43,12 +43,11 @@ public class CourseList {
         this.emptyHomeIndex--;
     }
 
-    public Course factulyId(String facul) {
+    public void factulyId(String facul) {
         for (Course c : list) {
             if (facul.equals(c.getFactuly()))
-                return c;
+                    c.toString();
         }
-        return null;
     }
 
     public Course[] getList() {
@@ -61,6 +60,7 @@ public class CourseList {
 
     public void showCourse() {
         for (int i = 0; i < emptyHomeIndex; i++) {
+            System.out.println("selected: "+ i );
             System.out.println("name: " + list[i].getName());
             System.out.println("faculty: " + list[i].getFactuly());
             System.out.println("id: " + list[i].getId());
@@ -120,6 +120,14 @@ public class CourseList {
             return 0;
         }
 
+    }
+    public int allunit(String name) {
+        int unit = 0;
+        for (Course v : list) {
+            if (name.equals(v.getProfessorName()))
+            unit += v.getUnit();
+        }
+        return unit;
     }
 
 

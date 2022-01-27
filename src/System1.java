@@ -78,7 +78,8 @@ public class System1 {
                     id = id + (rand.nextInt(1000));
                     system0.insertEmployee(this.user, this.password, this.name, id, this.date, this.nationalCode);
                     System.out.println("your employee add");
-                    break;}
+                    break;
+                    }
                     catch (NullPointerException e){
                         System.out.println(e.getStackTrace());
                         break;
@@ -240,13 +241,15 @@ public class System1 {
     }
 
     public void student(String user) {
+        String ids=null;
+        int select;
+        String faculty = null;
         boolean isRun = true;
         try{
-        String ids = system0.idStudent(user);
+        ids = system0.idStudent(user);
         System.out.println(ids);
-
-        String faculty = system0.myFaculty(ids);
-        int select;}
+        faculty = system0.myFaculty(ids);
+        }
         catch (Exception e){
             System.out.println(e.getStackTrace());
         }
@@ -303,12 +306,16 @@ public class System1 {
 
     public void professor(String user) {
         boolean isused = true;
+        String id=null;
+        String fc=null;
+        String select1;
+        int score;
         int selection;
         try {
-            String id = system0.idProfessor(user);
-            String fc = system0.facultyProfessor(id);
-            String select1;
-            double score;
+            id = system0.idProfessor(user);
+             fc = system0.facultyProfessor(id);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         while (isused) {
             try {
@@ -325,26 +332,27 @@ public class System1 {
                 case 1:
                     try{
                     system0.showInformationProfessor(id);
-                    break;}
+                    break;
+                    }
                     catch (NullPointerException e){
                         System.out.println(e.getStackTrace());
                         break;
                     }
                 case 2:
                     try {
-
                         system0.showMyStudent(fc);
                         System.out.println("insert id of student");
                         select1 = scanner.next();
                         System.out.println();
+                        System.out.println("please insert your idCourser");
+                        int idc=scanner.nextInt();
                         System.out.println("please insert Score");
-                        score = scanner.nextDouble();
-                        system0.insertScore(score, select1);
+                        score = scanner.nextInt();
+                        system0.insertScore(score, select1,idc);
                         break;
                     } catch (InputMismatchException e) {
                         System.out.println("your grade is not true");
                     }
-
 
                 case 3:
                     try{

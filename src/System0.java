@@ -99,9 +99,9 @@ public class System0 {
 
       }
     }
-    public void insertScore(double score,String id){
+    public void insertScore(int score,String id,int idcourse){
        try {
-           studentList.insertScore(score,id);
+           studentList.insertScore(score,id,idcourse);
        }catch (NullPointerException e){
            System.out.println(e.getStackTrace());
 
@@ -148,7 +148,7 @@ public class System0 {
     }
     public void myFacultyCourse(String faculty){
      try {
-         System.out.println(courseList.factulyId(faculty));
+         courseList.factulyId(faculty);
      }
      catch (NullPointerException e){
          System.out.println(e.getStackTrace());
@@ -163,7 +163,9 @@ public class System0 {
 
     catch (NullPointerException e){
         System.out.println(e.getStackTrace());
-    }}
+        return null;
+    }
+    }
     public void selecrCourse(int id,String ids){
     try {
         Course course1=courseList.get1(id);
@@ -179,6 +181,7 @@ public class System0 {
       return idp;
     }catch (NullPointerException e){
         System.out.println(e.getStackTrace());
+        return null;
     }}
     public void showInformationProfessor(String id){
       try {
@@ -189,11 +192,13 @@ public class System0 {
     }
     public String facultyProfessor(String id) {
         try {
-
        String s= professorList.faculty(id);
-       return s;}
-    }catch (NullPointerException e){
+       return s;
+        }
+    catch (NullPointerException e){
         System.out.println(e.getStackTrace());
+        return null;
+    }
     }
     public void changeNatianalCodeProfessor(String id ,String natinal){
         professorList.modifyNational(id,natinal);

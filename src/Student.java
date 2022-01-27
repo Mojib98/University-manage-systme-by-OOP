@@ -35,7 +35,7 @@ public class Student extends Person{
        // System.out.println("hhh");
     }
 
-    public void setScore() {
+    public void Score() {
         this.score = courseList.score();
     }
 
@@ -53,18 +53,26 @@ public class Student extends Person{
         courseList.showCourse();
     }
     public void selectCourse(Course v){
+        setUnits();
         if (check())
         courseList.add(v);
+        else
+            System.out.println("you cant");
 
     }
     private boolean check(){
-        if (this.units < 18){
+        if (this.units < 20){
             return true;
         }
-        return false;
+        else if (units == 20)
+         return false;
+        else return false;
     }
     public void setUnits(){
         this.units=courseList.allunit();
+    }
+    public void setScore(int score,int id){
+        courseList.setGrade(id,score);
     }
 
 }

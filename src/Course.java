@@ -70,5 +70,17 @@ public class Course {
 
     public void setProfessorName(String professorName) {
         this.professorName = professorName;
+
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", unit=" + unit +
+                ", professorName='" + professorName + '\'' +
+                ", factuly='" + factuly + '\'' +
+                '}';
     }
 }

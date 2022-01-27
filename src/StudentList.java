@@ -72,14 +72,14 @@ public class StudentList {
         }
     }
 
-    public void insertScore(int score, String id) {
+    public void insertScore(int score, String id,int idCourse) {
         try{
         int index = search(id);
         if (index == -1){
             throw  new UserNotFindeException();
         }
         else
-        list[index].setScore(score);
+        list[index].setScore(score,idCourse);
     }catch (Exception e){
             System.out.println("some things can't work currently " + e.getStackTrace());
         }}
@@ -138,6 +138,11 @@ public class StudentList {
         int index = search(id);
         list[index].setDate(date);
     }
+   /* public void showByProfessor(String name){
+        for (Student student:list){
+            student.get
+        }
+    }*/
 
 
 }
