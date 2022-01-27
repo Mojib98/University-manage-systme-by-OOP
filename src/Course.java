@@ -6,6 +6,7 @@ public class Course {
     private int unit;
     private String professorName;
     private String factuly;
+    private int grade;
 
     public Course(int id, String name, int unit, String professorName, String factuly) {
         this.id = id;
@@ -37,6 +38,34 @@ public class Course {
 
     public int getUnit() {
         return unit;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setUnit(int unit) {
+        this.unit = unit;
+    }
+
+    public String getProfessorName() {
+        return professorName;
+    }
+
+    public void setFactuly(String factuly) {
+        this.factuly = factuly;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
     }
 
     public void setProfessorName(String professorName) {

@@ -161,9 +161,9 @@ public class System0 {
            return fa;
        }
 
-    } catch (NullPointerException e){
+    catch (NullPointerException e){
         System.out.println(e.getStackTrace());
-    }
+    }}
     public void selecrCourse(int id,String ids){
     try {
         Course course1=courseList.get1(id);

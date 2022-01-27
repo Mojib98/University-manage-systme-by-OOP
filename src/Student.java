@@ -6,7 +6,7 @@ public class Student extends Person{
     String password;
     private Course course;
     private String factuly;
-    private double score;
+    private int score;
     private CourseList courseList;
     int index = 0;
     private int units;
@@ -19,14 +19,6 @@ public class Student extends Person{
         courseList = new CourseList();
         this.units=0;
     }
-
-
-  /*  public void setCourseList(CourseList courseList) {
-        this.courseList = courseList;
-    }
-    public void showFactulyCourse(){
-
-    }*/
 
     public String getFactuly() {
         return this.factuly;
@@ -43,8 +35,8 @@ public class Student extends Person{
        // System.out.println("hhh");
     }
 
-    public void setScore(double score) {
-        this.score = score;
+    public void setScore() {
+        this.score = courseList.score();
     }
 
     public String getUser() {
@@ -61,13 +53,18 @@ public class Student extends Person{
         courseList.showCourse();
     }
     public void selectCourse(Course v){
+        if (check())
         courseList.add(v);
+
     }
     private boolean check(){
         if (this.units < 18){
             return true;
         }
         return false;
+    }
+    public void setUnits(){
+        this.units=courseList.allunit();
     }
 
 }

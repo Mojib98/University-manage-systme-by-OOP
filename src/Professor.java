@@ -2,6 +2,7 @@
 public class Professor extends Employee {
     private String status;
     private String faculty;
+    private int unit = 0;
 
     public String getFaculty() {
         return faculty;
@@ -13,10 +14,6 @@ public class Professor extends Employee {
         this.faculty = faculty;
     }
 
- /*   @Override
-    public int getSalary() {
-        return super.getSalary();
-    }*/
     public void showInformation(){
         System.out.println("name : "+this.getName());
         System.out.println("id: " + this.getId());
@@ -30,8 +27,15 @@ public class Professor extends Employee {
         return status;
     }
 
-    public int getSalary1(int unit) {
-        return unit*1000000;
+    public int getSalary1() {
+        if (unit == 0)
+           return getSalary();
+        else
+            return this.unit*1000000;
+    }
+
+    public void setUnit(int unit) {
+        this.unit = unit;
     }
 
     @Override

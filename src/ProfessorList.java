@@ -79,7 +79,7 @@ public class ProfessorList {
         int index = search(id);
         int salaty=0;
         if (status.equals("ft")){
-            salaty=list[index].getSalary1(unit);
+            salaty=list[index].getSalary1();
         }
         else
            salaty= list[index].getSalary();

@@ -19,31 +19,32 @@ public class CourseList {
     }
 
     public Course get(int id) {
-        for (Course c: list) {
-            if (id==c.getId())
+        for (Course c : list) {
+            if (id == c.getId())
                 return c;
         }
         return null;
     }
-    private int search(int id){
-        for (int i =0;i<emptyHomeIndex-1;i++){
-            if(id == list[i].getId())
+
+    private int search(int id) {
+        for (int i = 0; i < emptyHomeIndex - 1; i++) {
+            if (id == list[i].getId())
                 return i;
         }
         return -1;
 
     }
 
-
-    public void remove(int id){
+    public void remove(int id) {
         int index = search(id);
-        for (int ind=index;ind<this.emptyHomeIndex-1;ind++)
-            list[ind]=list[ind+1];
-        list[emptyHomeIndex-1]=null;
+        for (int ind = index; ind < this.emptyHomeIndex - 1; ind++)
+            list[ind] = list[ind + 1];
+        list[emptyHomeIndex - 1] = null;
         this.emptyHomeIndex--;
     }
-    public Course factulyId(String facul){
-        for (Course c: list) {
+
+    public Course factulyId(String facul) {
+        for (Course c : list) {
             if (facul.equals(c.getFactuly()))
                 return c;
         }
@@ -53,32 +54,73 @@ public class CourseList {
     public Course[] getList() {
         return list;
     }
-    public String fc(int i){
+
+    public String fc(int i) {
         return list[i].getFactuly();
     }
-    public void showCourse(){
-      for (int i = 0;i<emptyHomeIndex;i++){
-          System.out.println("name: "+list[i].getName());
-          System.out.println("faculty: "+list[i].getFactuly());
-          System.out.println("id: "+list[i].getId());
-          System.out.println("unit: "+list[i].getUnit());
-      }
+
+    public void showCourse() {
+        for (int i = 0; i < emptyHomeIndex; i++) {
+            System.out.println("name: " + list[i].getName());
+            System.out.println("faculty: " + list[i].getFactuly());
+            System.out.println("id: " + list[i].getId());
+            System.out.println("unit: " + list[i].getUnit());
+            System.out.println("grade: " + list[i].getGrade());
+        }
     }
-    public Course getc(int id){
-        int ind=search(id);
+
+    public Course getc(int id) {
+        int ind = search(id);
         return list[ind];
     }
-    public void changeProfessor(int id,String professor){
-        int index=search(id);
+
+    public void changeProfessor(int id, String professor) {
+        int index = search(id);
         list[index].setProfessorName(professor);
     }
-    public int allunit(String name){
-        int unit =0;
-        for (Course v:list
-             ) {
-            if(v.getName().equals(name))
-                unit +=v.getUnit();
+
+    public int allunit() {
+        int unit = 0;
+        for (Course v : list) {
+            unit += v.getUnit();
         }
         return unit;
     }
+
+    private int allScore() {
+        int grade = 0;
+        for (Course v : list) {
+            grade += v.getGrade() * v.getGrade();
+        }
+        return grade;
+    }
+
+    public void setGrade(int id, int grade) {
+        int i = search(id);
+        try {
+            if (i == -1)
+                throw new UserNotFindeException();
+            else
+                list[i].setGrade(grade);
+        } catch (UserNotFindeException n) {
+            System.out.println("user not finde");
+        }
+
+    }
+
+    public int score() {
+        int i = 0;
+        int b = 0;
+        try {
+            i = allunit();
+            b = allScore();
+            return b / i;
+        } catch (Exception e) {
+            System.out.println(e.toString());
+            return 0;
+        }
+
+    }
+
+
 }

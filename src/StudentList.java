@@ -19,10 +19,6 @@ public class StudentList {
             System.out.println(e.getStackTrace());
         }}
 
-    /* public Student get(int index) {
-         return list[index];
-     }
- */
     public Student get(String id) {
         for (Student c : list) {
             if (c.getId().equals(id))
@@ -31,21 +27,13 @@ public class StudentList {
         return null;
     }
 
-    public Boolean isEmpty() {
-        return emptyHomeIndex == 0;
-    }
 
-    public int size() {
-        return emptyHomeIndex;
-    }
-
-    public int search(String id) {
-        for (int i = 0; i <= emptyHomeIndex -1; i++) {
+    private int search(String id) {
+        for (int i = 0; i < emptyHomeIndex ; i++) {
             String temp = list[i].getId();
             if (id.equals(temp)) {
                 return i;
             }
-
         }
         return -1;
     }
@@ -78,30 +66,23 @@ public class StudentList {
         }}
 
     public void fac(String fc) {
-       /* for (Student s : list
-        )
-            if (fc.equals(s.getFactuly())) {
-                s.showMyInfo();
-            }*/
         for (int i = 0 ;i<=emptyHomeIndex-1;i++){
             if (list[i].getFactuly().equals(fc))
                 list[i].showMyInfo();
         }
     }
 
-    public void insertScore(double score, String id) {
+    public void insertScore(int score, String id) {
         try{
         int index = search(id);
         if (index == -1){
             throw  new UserNotFindeException();
         }
+        else
         list[index].setScore(score);
     }catch (Exception e){
             System.out.println("some things can't work currently " + e.getStackTrace());
         }}
-    //   public void showProfessor(String id){
-
-    //  }
     public boolean set(String user, String passwor) {
         for (Student c : list) {
             if (c.getUser().equals(user))
@@ -118,10 +99,9 @@ public class StudentList {
             if ((c.getUser().equals(user))) {
                 return c.getId();
             }
-        }
+        }}
         catch (Exception e){
                 System.out.println(e.getStackTrace());
-                break;
             }
         return null;
     }
