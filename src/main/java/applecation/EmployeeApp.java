@@ -6,6 +6,7 @@ import modul.Professor;
 import modul.Student;
 import system.Employee.EmployeeSystem;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
@@ -85,6 +86,23 @@ public class EmployeeApp {
         }
         catch (NullPointerException e){
             System.out.println(e.getStackTrace());
+        }
+    }
+    public void insertCourse(){
+        try {
+            System.out.println("plese insert course name");
+            this.name = scanner.next();
+            System.out.println("please insert unit insert integer");
+            int unit = scanner.nextInt();
+            System.out.println("please insert professor");
+            String pro = scanner.next();
+            System.out.println("please insert your faculty between 'math' or 'computer'");
+            String fc = scanner.next();
+            int ids = (rand.nextInt(1000));
+            employeeSystem.insertCourse(ids, this.name, unit, pro, fc);
+            break;
+        } catch (InputMismatchException e) {
+            System.out.println("your unit course is not true");
         }
     }
 
