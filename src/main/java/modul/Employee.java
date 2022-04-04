@@ -4,7 +4,6 @@ import modul.Person;
 
 public class Employee extends Person {
     private String status;
-   // private String salary;
     private String user;
     private String password;
 
@@ -32,17 +31,11 @@ public class Employee extends Person {
         this.password = password;
     }
 
-    //public void setSalary(int salary) {
-     //   this.salary = salary;
-  //  }
 
     public String getStatus() {
         return status;
     }
 
-  //  public int getSalary() {
- //       return salary;
- //   }
   public void showMyInfo(){
       System.out.print(getName()+" ");
       System.out.print(getId());

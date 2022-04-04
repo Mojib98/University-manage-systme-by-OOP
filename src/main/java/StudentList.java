@@ -69,7 +69,7 @@ public class StudentList {
 
     public void fac(String fc) {
         for (int i = 0 ;i<=emptyHomeIndex-1;i++){
-            if (list[i].getFactuly().equals(fc))
+            if (list[i].getFaculty().equals(fc))
                 list[i].showMyInfo();
         }
     }
@@ -126,7 +126,7 @@ public class StudentList {
 
     public String faculty(String id) {
         int index = search(id);
-        String f = list[index].getFactuly();
+        String f = list[index].getFaculty();
         return f;
 
     }
