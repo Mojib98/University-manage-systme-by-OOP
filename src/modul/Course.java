@@ -1,3 +1,4 @@
+package modul;
 
 import java.util.*;
 public class Course {
@@ -75,7 +76,7 @@ public class Course {
 
     @Override
     public String toString() {
-        return "Course{" +
+        return "modul.Course{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", unit=" + unit +

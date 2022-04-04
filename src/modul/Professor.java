@@ -1,3 +1,6 @@
+package modul;
+
+import modul.Employee;
 
 public class Professor extends Employee {
     private String status;

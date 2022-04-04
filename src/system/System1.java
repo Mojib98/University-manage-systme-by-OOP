@@ -1,3 +1,5 @@
+package system;
+
 import java.util.Scanner;
 import java.util.Random;
 import java.util.InputMismatchException;
@@ -25,9 +27,10 @@ public class System1 {
         scanner = new Scanner(System.in);
         system0 = new System0();
         system0.insertEmployee("admin", "admin", "majid", "admin", "admin", "admon");
-        system0.insertStudent("m", "m", "m", "Sm", "m", "m", "m");
-        system0.insertCourse(1, "a", 3, "a", "m");
-        system0.insertProfessor("q", "q", "q", "q", "q", "q,", "ht", "m");
+        system0.insertStudent("m", "m", "mojib", "Sm", "m", "m", "m");
+        system0.insertCourse(1, "reyazi", 3, "ahmad", "m");
+        system0.insertCourse(2, "reyazi2", 3, "ahmadi", "m");
+        system0.insertProfessor("ahamd", "ahmad", "ahmad", "q", "q", "q,", "ht", "m");
         system0.insertProfessor("f", "f", "q", "q", "q", "f", "ft", "m");
         system0.insertStudent("w", "w", "m", "Sm", "m", "m", "m");
 
@@ -90,7 +93,7 @@ public class System1 {
                     System.out.println("plese insert id");
                     String idn = scanner.next();
                     system0.removeEmplyee(idn);
-                    System.out.println("your Employee remove");
+                    System.out.println("your modul.Employee remove");
                     break;}
                     catch (NullPointerException e){
                         System.out.println(e.getStackTrace());
@@ -279,14 +282,14 @@ public class System1 {
 
                 case 2:
                     try {
-                        system0.myFacultyCourse(faculty);
+                        system0.showCoures();
                         int d = scanner.nextInt();
                         system0.selecrCourse(d, ids);
                     } catch (InputMismatchException e) {
                         System.out.println("your id faculty is not true");
                     }
                     catch (NullPointerException e) {
-                        System.out.println(e.getMessage());
+                        System.out.println("s "+e.getMessage());
                         break;
                     }
                 case 3:
@@ -391,12 +394,12 @@ public class System1 {
     }
 
     public void showEmployeeAction() {
-        System.out.println("for sing up Employee insert 1");
-        System.out.println("for remove Employee insert 2");
+        System.out.println("for sing up modul.Employee insert 1");
+        System.out.println("for remove modul.Employee insert 2");
         System.out.println("for sing up professor insert 3");
         System.out.println("for remove professor insert 4");
-        System.out.println("for sing up Student insert 5");
-        System.out.println("for remove Student insert 6");
+        System.out.println("for sing up modul.Student insert 5");
+        System.out.println("for remove modul.Student insert 6");
         System.out.println("for add course insert 7");
         System.out.println("for remove course insert 8");
         System.out.println("for modify employee insert 9");

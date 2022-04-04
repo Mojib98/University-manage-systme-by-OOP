@@ -1,3 +1,4 @@
+import modul.Professor;
 
 public class ProfessorList {
     private Professor[] list;

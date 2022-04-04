@@ -1,3 +1,4 @@
+package modul;
 
 abstract public class Person {
     private String name;

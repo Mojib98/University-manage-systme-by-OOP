@@ -1,4 +1,6 @@
-
+import modul.Course;
+import modul.Student;
+import system.UserNotFindeException;
 
 public class StudentList {
     private Student[] list;
@@ -139,7 +141,7 @@ public class StudentList {
         list[index].setDate(date);
     }
    /* public void showByProfessor(String name){
-        for (Student student:list){
+        for (modul.Student student:list){
             student.get
         }
     }*/

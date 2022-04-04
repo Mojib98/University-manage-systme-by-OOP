@@ -1,5 +1,7 @@
-import java.io.PrintStream;
-import java.util.*;
+package system;
+
+import modul.*;
+
 public class System0 {
    // public static PrintStream out;
    // public static String in;
@@ -146,9 +148,9 @@ public class System0 {
         }
         return false;
     }
-    public void myFacultyCourse(String faculty){
+    public void showCoures(){
      try {
-         courseList.factulyId(faculty);
+         courseList.showCourse();
      }
      catch (NullPointerException e){
          System.out.println(e.getStackTrace());
@@ -168,7 +170,7 @@ public class System0 {
     }
     public void selecrCourse(int id,String ids){
     try {
-        Course course1=courseList.get1(id);
+        Course course1=courseList.get(id);
 
         studentList.insertCourse(ids,course1);
     }catch (NullPointerException e){

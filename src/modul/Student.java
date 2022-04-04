@@ -1,13 +1,15 @@
+package modul;
 
+import modul.Course;
+import modul.Person;
 
-
-public class Student extends Person{
+public class Student extends Person {
     String user;
     String password;
     private Course course;
     private String factuly;
     private int score;
-    private CourseList courseList;
+    private
     int index = 0;
     private int units;
     public Student(String user,String password,String name, String id, String date, String nationalCode,String factuly) {
@@ -15,7 +17,7 @@ public class Student extends Person{
         this.factuly = factuly;
         this.user= user;
         this.password = password;
-        //this.course = new Course[10];
+        //this.course = new modul.Course[10];
         courseList = new CourseList();
         this.units=0;
     }
@@ -54,9 +56,7 @@ public class Student extends Person{
     }
     public void selectCourse(Course v){
         setUnits();
-        if (check())
         courseList.add(v);
-        else
             System.out.println("you cant");
 
     }
