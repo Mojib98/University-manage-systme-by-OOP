@@ -101,7 +101,7 @@ public class System1 {
                     }
                 case 3:
                     try {
-                        giving();
+                        /*giving();
                     System.out.println("please insert Status full-timd --> 'ft' or half-time-->'ht'");
                     String status = scanner.next();
                     System.out.println("please insert faculty between 'math' and 'computer'");
@@ -112,7 +112,7 @@ public class System1 {
                     break;}
                     catch (Exception e){
                         System.out.println(e.getStackTrace());
-                        break;
+                        break;*/
                     }
                 case 4:
                     try {
@@ -411,7 +411,7 @@ public class System1 {
         System.out.println("plese insert number");
     }
 
-    public void giving() {
+/*    public void giving() {
         System.out.println("please insert user");
         this.user = scanner.next();
         System.out.println("please insert password");
@@ -422,7 +422,7 @@ public class System1 {
         this.date = scanner.next();
         System.out.println("please insert national code");
         this.nationalCode = scanner.next();
-    }
+    }*/
 
 
 }
