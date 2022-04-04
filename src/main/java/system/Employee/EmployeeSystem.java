@@ -17,7 +17,14 @@ public class EmployeeSystem {
     Student student;
     List<Student> studentList;
 
-    public void insertCourse(int id,String name,int unit,String professor,String factuly){
+    public EmployeeSystem(List<Course> courseList, List<Employee> emplyeeList, List<Professor> professorList, List<Student> studentList) {
+        this.courseList = courseList;
+        this.emplyeeList = emplyeeList;
+        this.professorList = professorList;
+        this.studentList = studentList;
+    }
+
+    public void insertCourse(int id, String name, int unit, String professor, String factuly){
         try {
             course = new Course(id,name,unit,professor,factuly);
             courseList.add(course);

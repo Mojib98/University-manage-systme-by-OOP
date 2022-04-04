@@ -342,7 +342,7 @@ public class System1 {
                         break;
                     }
                 case 2:
-                    try {
+              /*      try {
                         system0.showMyStudent(fc);
                         System.out.println("insert id of student");
                         select1 = scanner.next();
@@ -355,7 +355,7 @@ public class System1 {
                         break;
                     } catch (InputMismatchException e) {
                         System.out.println("your grade is not true");
-                    }
+                    }*/
 
                 case 3:
                     try{
