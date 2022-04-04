@@ -62,6 +62,19 @@ public class EmployeeApp {
             System.out.println(e.getStackTrace());
         }
     }
-
+    public void insertStudent(){
+        try {
+            giving();
+            id = "S";
+            id = id + (rand.nextInt(1000));
+            System.out.println("insert faculty between 'computer' or 'math'");
+            String fac = scanner.next();
+            employeeSystem.insertStudent(this.user, this.password, this.name, id, this.date, this.nationalCode, fac);
+            break;}
+        catch (Exception e){
+            System.out.println(e.getStackTrace());
+            break;
+        }
+    }
 
 }
