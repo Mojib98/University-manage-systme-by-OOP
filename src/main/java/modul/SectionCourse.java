@@ -1,19 +1,14 @@
 package modul;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
-@NoArgsConstructor
-public class SectionCourse {
-    private int id;
-    private String name;
-    private int unit;
-    private String professorName;
-    private String faculty;
+public class SectionCourse extends Course {
+    public SectionCourse(int id, String name, int unit, String professorName, String factuly, int grade) {
+        super(id, name, unit, professorName, factuly);
+        this.grade = grade;
+    }
     private int grade;
 }
