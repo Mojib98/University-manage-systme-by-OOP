@@ -70,10 +70,21 @@ public class EmployeeApp {
             System.out.println("insert faculty between 'computer' or 'math'");
             String fac = scanner.next();
             employeeSystem.insertStudent(this.user, this.password, this.name, id, this.date, this.nationalCode, fac);
-            break;}
+            }
         catch (Exception e){
             System.out.println(e.getStackTrace());
-            break;
+        }
+    }
+    public void insertEmployee(){
+        try {
+            giving();
+            id = "E";
+            id = id + (rand.nextInt(1000));
+            employeeSystem.insertEmployee(this.user, this.password, this.name, id, this.date, this.nationalCode);
+            System.out.println("your employee add");
+        }
+        catch (NullPointerException e){
+            System.out.println(e.getStackTrace());
         }
     }
 

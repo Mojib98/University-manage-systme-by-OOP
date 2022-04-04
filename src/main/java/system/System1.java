@@ -75,7 +75,7 @@ public class System1 {
             }
             switch (i) {
                 case 1:
-                    try {
+             /*       try {
                     giving();
                     id = "E";
                     id = id + (rand.nextInt(1000));
@@ -86,7 +86,7 @@ public class System1 {
                     catch (NullPointerException e){
                         System.out.println(e.getStackTrace());
                         break;
-                    }
+                    }*/
 
                 case 2:
                     try {
@@ -125,7 +125,7 @@ public class System1 {
                         break;
                     }
                 case 5:
-                    try {
+/*                    try {
                         giving();
                     id = "S";
                     id = id + (rand.nextInt(1000));
@@ -136,7 +136,7 @@ public class System1 {
                     catch (Exception e){
                         System.out.println(e.getStackTrace());
                         break;
-                    }
+                    }*/
                 case 6:
                     try{
                     System.out.println("insert id");
