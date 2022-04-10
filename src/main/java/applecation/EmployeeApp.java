@@ -21,7 +21,7 @@ public class EmployeeApp {
     private Random rand;
     private Scanner scanner;
     private String id;
-    EmployeeSystem employeeSystem = new EmployeeSystem(courseList, emplyeeList, professorList, studentList);
+    EmployeeSystem employeeSystem;
 
     public EmployeeApp(List<Course> courseList, List<Employee> emplyeeList, List<Professor> professorList, List<Student> studentList) {
         this.courseList = courseList;
@@ -30,6 +30,7 @@ public class EmployeeApp {
         this.studentList = studentList;
         rand = new Random();
         scanner = new Scanner(System.in);
+       this. employeeSystem = new EmployeeSystem(this.courseList, this.emplyeeList,this. professorList, this.studentList);
     }
 
     private void giving() {
@@ -122,8 +123,8 @@ public class EmployeeApp {
             String name = scanner.next();
             var list2 = studentList.iterator();
             while (list2.hasNext()) {
-                if (list2.next().equals(name)) ;
-                System.out.println(list2.next()+" is delete");
+                if (list2.next().getName().equals(name)) ;
+                System.out.println(list2+" is delete");
                 list2.remove();
                 break;
             }
@@ -137,7 +138,7 @@ public class EmployeeApp {
             String name = scanner.next();
             var list2 = professorList.iterator();
             while (list2.hasNext()) {
-                if (list2.next().equals(name)) ;
+                if (list2.next().getName().equals(name)) ;
                 System.out.println(list2.next()+" is delete");
                 list2.remove();
                 break;
@@ -153,7 +154,7 @@ public class EmployeeApp {
             String name = scanner.next();
             var list2 = courseList.iterator();
             while (list2.hasNext()) {
-                if (list2.next().equals(name)) ;
+                if (list2.next().getName().equals(name)) ;
                 System.out.println(list2.next()+" is delete");
                 list2.remove();
                 break;
@@ -164,14 +165,14 @@ public class EmployeeApp {
     }
     public void deleteEmployee(){
         try {
-            System.out.println("insert Student name");
+            System.out.println("insert employee name");
             String name = scanner.next();
-            var list2 = emplyeeList.iterator();
-            while (list2.hasNext()) {
-                if (list2.next().equals(name)) ;
-                System.out.println(list2.next()+" is delete");
-                list2.remove();
-                break;
+            for (Employee e:emplyeeList){
+                if (e.getName().equals(name)) {
+                    System.out.println(e);
+                    emplyeeList.remove(e);
+                    break;
+                }
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -184,7 +185,7 @@ public class EmployeeApp {
     public void myInformation(String name){
         var emL=emplyeeList.iterator();
         while (emL.hasNext()){
-            if (emL.next().equals(name))
+            if (emL.next().getName().equals(name))
                 System.out.println(emL.next());
             break;
         }

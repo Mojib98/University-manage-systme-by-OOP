@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MainApp {
-    private String name;
+     String name;
     List<Student> studentList = new ArrayList<>();
     List<Professor> professorList = new ArrayList<>();
     List<Course> courseList = new ArrayList<>();
@@ -61,6 +61,7 @@ public class MainApp {
                     break;
                 case 13:
                     employeeApp.myInformation(this.name);
+                    break;
                 case 14:
                     isRunner=false;
 
