@@ -13,11 +13,15 @@ public class StudentApp {
     StudentSystem studentSystem = new StudentSystem();
     Scanner scanner = new Scanner(System.in);
 
+    public StudentApp(List<Course> list) {
+        this.list = list;
+    }
+
     public void selectCourse() {
         studentSystem.setStudent(student);
         System.out.println("please insert name");
         String name = scanner.next();
-        Course course = findCorse(name)
+        Course course = findCorse(name);
         if (course !=null){
             studentSystem.selectCourse(course);
         }
@@ -35,5 +39,10 @@ public class StudentApp {
                 return c;
         }
         return null;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
+        studentSystem.setStudent(student);
     }
 }
