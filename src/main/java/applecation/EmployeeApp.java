@@ -56,7 +56,7 @@ public class EmployeeApp {
             System.out.println("please insert faculty between 'math' and 'computer'");
             String faculty = scanner.next();
             id = "P";
-            id = id + (rand.nextInt(1000));
+            id = id + (rand.nextInt(2000));
             employeeSystem.insertProfessor(this.user, this.password, this.name, id, this.date, this.nationalCode, status, faculty);
         } catch (
                 Exception e) {
@@ -67,7 +67,7 @@ public class EmployeeApp {
         try {
             giving();
             id = "S";
-            id = id + (rand.nextInt(1000));
+            id = id + (rand.nextInt(3000));
             System.out.println("insert faculty between 'computer' or 'math'");
             String fac = scanner.next();
             employeeSystem.insertStudent(this.user, this.password, this.name, id, this.date, this.nationalCode, fac);
@@ -96,14 +96,28 @@ public class EmployeeApp {
             int unit = scanner.nextInt();
             System.out.println("please insert professor");
             String pro = scanner.next();
+            Professor professor = findProfessor(pro);
+            if (professor!=null){
+                professor.setUnit(unit);
+            }else{
+                System.out.println("professor not find");
+                return;
+            }
             System.out.println("please insert your faculty between 'math' or 'computer'");
             String fc = scanner.next();
             int ids = (rand.nextInt(1000));
             employeeSystem.insertCourse(ids, this.name, unit, pro, fc);
-            break;
         } catch (InputMismatchException e) {
             System.out.println("your unit course is not true");
         }
+    }
+    private Professor findProfessor(String name){
+        for (Professor p : professorList){
+            if (p.getName().equals(name)){
+                return p;
+            }
+        }
+        return null;
     }
 
 }

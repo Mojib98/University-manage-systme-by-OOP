@@ -10,15 +10,13 @@ import java.util.List;
 
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
 public class Student extends Person {
     private String user;
     private String password;
     private String faculty;
     private int units;
     private List<SectionCourse> courseList = new ArrayList<>();
-    private Integer lastDegre;
+    private Integer lastScore;
 
     public void showMyInfo() {
 
@@ -34,21 +32,21 @@ public class Student extends Person {
 
     public Student(String name, String id, String date, String nationalCode,
                    String user, String password, String faculty,
-                   int units, Integer lastDegre) {
+                   int units, Integer lastScore) {
         super(name, id, date, nationalCode);
         this.user = user;
         this.password = password;
         this.faculty = faculty;
         this.units = units;
-        this.lastDegre = lastDegre;
+        this.lastScore = lastScore;
     }
 
 
     public void insertCourse(SectionCourse sectionCourse) {
-        if (this.lastDegre >= 17) {
+        if (this.lastScore >= 17) {
             if (units + sectionCourse.getUnit() <= 24)
                 courseList.add(sectionCourse);
-        } else if (this.lastDegre < 17 & this.lastDegre > 14) {
+        } else if (this.lastScore < 17 & this.lastScore > 14) {
             if (units + sectionCourse.getUnit() <= 20) {
                 courseList.add(sectionCourse);
             }

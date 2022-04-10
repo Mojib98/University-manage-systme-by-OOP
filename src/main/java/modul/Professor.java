@@ -35,7 +35,7 @@ public class Professor extends Employee {
     }
 
     public void setUnit(int unit) {
-        this.unit = unit;
+        this.unit += unit;
     }
 
     @Override
