@@ -132,5 +132,20 @@ public class EmployeeApp {
             list2.remove();
             break;
         }*/
+    public void deleteProfessor(){}
+    public void deleteCourse(){}
+    public void deleteEmployee(){}
+    public void modifyProfessor(){}
+    public void modifyStudent(){}
+    public void modifyEmployee(){}
+    public void modifyCourse(){}
+    public void myInformation(String name){
+        var emL=emplyeeList.iterator();
+        while (emL.hasNext()){
+            if (emL.next().equals(name))
+                System.out.println(emL.next());
+            break;
+        }
+    }
     }
 

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MainApp {
+    private String name;
     List<Student> studentList = new ArrayList<>();
     List<Professor> professorList = new ArrayList<>();
     List<Course> courseList = new ArrayList<>();
@@ -17,7 +18,8 @@ public class MainApp {
     Scanner scanner = new Scanner(System.in);
     EmployeeApp employeeApp = new EmployeeApp(courseList,employeeList,professorList,studentList);
     private void employeeMenu(){
-        while (true){
+      boolean isRunner=true;
+        while (isRunner){
             showEmployeeAction();
             int select=scanner.nextInt();
             switch (select) {
@@ -25,25 +27,42 @@ public class MainApp {
                     employeeApp.insertEmployee();
                     break;
                 case 2:
-
+                    employeeApp.deleteEmployee();
+                    break;
                 case 3:
                     employeeApp.insertProfessor();
                     break;
                 case 4:
+                    employeeApp.deleteProfessor();
+                    break;
                 case 5:
                     employeeApp.insertStudent();
                     break;
                 case 6:
+                    employeeApp.deleteStudent();
+                    break;
                 case 7:
                     employeeApp.insertCourse();
                     break;
                 case 8:
+                    employeeApp.deleteCourse();
+                    break;
                 case 9:
+                    employeeApp.modifyEmployee();
+                    break;
                 case 10:
+                    employeeApp.modifyStudent();
+                    break;
                 case 11:
+                    employeeApp.modifyProfessor();
+                    break;
                 case 12:
+                    employeeApp.modifyCourse();
+                    break;
                 case 13:
+                    employeeApp.myInformation(this.name);
                 case 14:
+                    isRunner=false;
 
             }
         }
