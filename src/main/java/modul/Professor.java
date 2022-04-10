@@ -42,6 +42,15 @@ public class Professor extends Employee {
     public int getSalary() {
         return super.getSalary();
     }
+
+    @Override
+    public String toString() {
+        return "Professor{" +
+                "status='" + status + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", unit=" + unit +
+                "} " + super.toString();
+    }
 }
 
 

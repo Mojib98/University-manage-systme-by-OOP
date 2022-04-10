@@ -42,4 +42,14 @@ abstract public class Person {
     public void setNationalCode(String nationalCode) {
         this.nationalCode = nationalCode;
     }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", id='" + id + '\'' +
+                ", date='" + date + '\'' +
+                ", nationalCode='" + nationalCode + '\'' +
+                '}';
+    }
 }

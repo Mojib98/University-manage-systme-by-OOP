@@ -30,6 +30,18 @@ public class Student extends Person {
         // System.out.println("hhh");
     }
 
+    @Override
+    public String toString() {
+        return "Student{" +
+                "user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                ", faculty='" + faculty + '\'' +
+                ", units=" + units +
+                ", courseList=" + courseList +
+                ", lastScore=" + lastScore +
+                "} " + super.toString();
+    }
+
     public Student(String name, String id, String date, String nationalCode,
                    String user, String password, String faculty) {
         super(name, id, date, nationalCode);

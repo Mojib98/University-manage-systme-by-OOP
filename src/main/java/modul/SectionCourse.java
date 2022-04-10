@@ -11,4 +11,11 @@ public class SectionCourse extends Course {
         this.grade = grade;
     }
     private int grade;
+
+    @Override
+    public String toString() {
+        return "SectionCourse{" +
+                "grade=" + grade +
+                "} " + super.toString();
+    }
 }

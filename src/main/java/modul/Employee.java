@@ -31,4 +31,12 @@ public class Employee extends Person {
 
   }
 
+    @Override
+    public String toString() {
+        return "Employee{" +
+                "status='" + status + '\'' +
+                ", user='" + user + '\'' +
+                ", password='" + password + '\'' +
+                "} " + super.toString();
+    }
 }

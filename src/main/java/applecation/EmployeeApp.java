@@ -120,21 +120,63 @@ public class EmployeeApp {
         try {
             System.out.println("insert Student name");
             String name = scanner.next();
-//            deleteFromList(name,studentList);
+            var list2 = studentList.iterator();
+            while (list2.hasNext()) {
+                if (list2.next().equals(name)) ;
+                System.out.println(list2.next()+" is delete");
+                list2.remove();
+                break;
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-   /* private void deleteFromList(String name , List<Person> list){
-      var list2=  list.iterator();
-        while (list2.hasNext()){
-           if (list2.next().equals(name));
-            list2.remove();
-            break;
-        }*/
-    public void deleteProfessor(){}
-    public void deleteCourse(){}
-    public void deleteEmployee(){}
+    public void deleteProfessor(){
+        try {
+            System.out.println("insert professor name");
+            String name = scanner.next();
+            var list2 = professorList.iterator();
+            while (list2.hasNext()) {
+                if (list2.next().equals(name)) ;
+                System.out.println(list2.next()+" is delete");
+                list2.remove();
+                break;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
+    public void deleteCourse(){
+        try {
+            System.out.println("insert Course name");
+            String name = scanner.next();
+            var list2 = courseList.iterator();
+            while (list2.hasNext()) {
+                if (list2.next().equals(name)) ;
+                System.out.println(list2.next()+" is delete");
+                list2.remove();
+                break;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+    public void deleteEmployee(){
+        try {
+            System.out.println("insert Student name");
+            String name = scanner.next();
+            var list2 = emplyeeList.iterator();
+            while (list2.hasNext()) {
+                if (list2.next().equals(name)) ;
+                System.out.println(list2.next()+" is delete");
+                list2.remove();
+                break;
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
     public void modifyProfessor(){}
     public void modifyStudent(){}
     public void modifyEmployee(){}
