@@ -7,6 +7,7 @@ import modul.Student;
 public class StudentSystem {
     Student student;
 
+
     public void selectCourse(Course course) {
         SectionCourse sectionCourse = new SectionCourse(course.getId()
                 , course.getName()
@@ -21,4 +22,8 @@ public class StudentSystem {
     }
     //delete Course after Added
 
+
+    public void setStudent(Student student) {
+        this.student = student;
+    }
 }
