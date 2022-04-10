@@ -1,3 +1,4 @@
+/*
 import system.System1;
 
 public class Main {
@@ -15,3 +16,4 @@ public class Main {
         system1.doIt();
     }
 }
+*/

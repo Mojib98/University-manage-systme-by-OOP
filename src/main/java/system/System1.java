@@ -62,7 +62,7 @@ public class System1 {
         }
     }
 
-    public void empolyee(String user, String password) {
+    /*public void empolyee(String user, String password) {
         boolean isTrue = true;
         while (isTrue) {
 
@@ -75,7 +75,7 @@ public class System1 {
             }
             switch (i) {
                 case 1:
-             /*       try {
+             *//*       try {
                     giving();
                     id = "E";
                     id = id + (rand.nextInt(1000));
@@ -86,7 +86,7 @@ public class System1 {
                     catch (NullPointerException e){
                         System.out.println(e.getStackTrace());
                         break;
-                    }*/
+                    }*//*
 
                 case 2:
                     try {
@@ -101,7 +101,7 @@ public class System1 {
                     }
                 case 3:
                     try {
-                        /*giving();
+                        *//*giving();
                     System.out.println("please insert Status full-timd --> 'ft' or half-time-->'ht'");
                     String status = scanner.next();
                     System.out.println("please insert faculty between 'math' and 'computer'");
@@ -112,7 +112,7 @@ public class System1 {
                     break;}
                     catch (Exception e){
                         System.out.println(e.getStackTrace());
-                        break;*/
+                        break;*//*
                     }
                 case 4:
                     try {
@@ -125,7 +125,7 @@ public class System1 {
                         break;
                     }
                 case 5:
-/*                    try {
+*//*                    try {
                         giving();
                     id = "S";
                     id = id + (rand.nextInt(1000));
@@ -136,7 +136,7 @@ public class System1 {
                     catch (Exception e){
                         System.out.println(e.getStackTrace());
                         break;
-                    }*/
+                    }*//*
                 case 6:
                     try{
                     System.out.println("insert id");
@@ -240,8 +240,8 @@ public class System1 {
                     isTrue = false;
             }
         }
-
-    }
+*/
+//    }
 
     public void student(String user) {
         String ids=null;
@@ -393,7 +393,7 @@ public class System1 {
 
     }
 
-    public void showEmployeeAction() {
+/*    public void showEmployeeAction() {
         System.out.println("for sing up modul.Employee insert 1");
         System.out.println("for remove modul.Employee insert 2");
         System.out.println("for sing up professor insert 3");
@@ -409,7 +409,7 @@ public class System1 {
         System.out.println("for see your information insert 13");
         System.out.println("exit 14");
         System.out.println("plese insert number");
-    }
+    }*/
 
 /*    public void giving() {
         System.out.println("please insert user");

@@ -1,9 +1,6 @@
 package applecation;
 
-import modul.Course;
-import modul.Employee;
-import modul.Professor;
-import modul.Student;
+import modul.*;
 import system.Employee.EmployeeSystem;
 
 import java.util.InputMismatchException;
@@ -119,5 +116,21 @@ public class EmployeeApp {
         }
         return null;
     }
+    public void deleteStudent(){
+        try {
+            System.out.println("insert Student name");
+            String name = scanner.next();
+//            deleteFromList(name,studentList);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+   /* private void deleteFromList(String name , List<Person> list){
+      var list2=  list.iterator();
+        while (list2.hasNext()){
+           if (list2.next().equals(name));
+            list2.remove();
+            break;
+        }*/
+    }
 
-}

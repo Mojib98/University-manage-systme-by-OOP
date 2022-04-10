@@ -8,9 +8,9 @@ public class Professor extends Employee {
         return faculty;
     }
 
-    public Professor(String user, String pas, String name, String id, String date, String nationalCode, String status, String faculty) {
-        super(user,pas,name, id, date, nationalCode);
-        this.status = status;
+    public Professor(String name, String id, String date, String nationalCode, String status, String user, String password, String status1, String faculty) {
+        super(name, id, date, nationalCode, status, user, password);
+        this.status = status1;
         this.faculty = faculty;
     }
 
