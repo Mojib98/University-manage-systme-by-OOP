@@ -41,7 +41,7 @@ public class EmployeeSystem {
 
         }}
     public void insertEmployee(String user,String pas,String name,String id,String date,String national){
-        employee = new Employee(user,pas,name,id,date,national);
+        employee = new Employee(name,id,date,national,"ACTIVE",user,pas);
         emplyeeList.add(employee);
         System.out.printf("your employee added");
     }
@@ -54,7 +54,7 @@ public class EmployeeSystem {
         }}
     public void insertProfessor(String user,String pass,String name,String id,String date,String nationaCode,String status,String faculty){
 
-        professor = new Professor(user,pass,name,id,date,nationaCode,status,faculty);
+        professor = new Professor(name,id,date,nationaCode,status,user,pass,status,faculty);
         professorList.add(professor);
     }
     public void removeProfessor(String id){
@@ -62,7 +62,7 @@ public class EmployeeSystem {
     }
     public void insertStudent(String user,String password,String name,String id,String date,String nationaCode,String fac){
 
-        student = new Student(user,password,name,id,date,nationaCode,fac);
+        student = new Student(name,id,date,nationaCode,user,password,fac);
         studentList.add(student);
     }
     public void removeStudent(String id){

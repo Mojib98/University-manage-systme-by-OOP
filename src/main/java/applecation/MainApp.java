@@ -17,7 +17,7 @@ public class MainApp {
     List<Employee> employeeList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     EmployeeApp employeeApp = new EmployeeApp(courseList,employeeList,professorList,studentList);
-    private void employeeMenu(){
+    public void employeeMenu(){
       boolean isRunner=true;
         while (isRunner){
             showEmployeeAction();

@@ -1,3 +1,4 @@
+/*
 package system;
 
 import java.util.Scanner;
@@ -15,12 +16,12 @@ public class System1 {
     private String nationalCode;
     private String user;
     private String password;
-    private Random rand;
-    private Scanner scanner;
+    private final Random rand;
+    private final Scanner scanner;
     private String id;
     private String user1;
     private String password1;
-    private System0 system0;
+    private final System0 system0;
 
     public System1() {
         rand = new Random();
@@ -62,7 +63,8 @@ public class System1 {
         }
     }
 
-    /*public void empolyee(String user, String password) {
+    */
+/*public void empolyee(String user, String password) {
         boolean isTrue = true;
         while (isTrue) {
 
@@ -75,7 +77,9 @@ public class System1 {
             }
             switch (i) {
                 case 1:
-             *//*       try {
+             *//*
+*/
+/*       try {
                     giving();
                     id = "E";
                     id = id + (rand.nextInt(1000));
@@ -87,6 +91,8 @@ public class System1 {
                         System.out.println(e.getStackTrace());
                         break;
                     }*//*
+*/
+/*
 
                 case 2:
                     try {
@@ -101,7 +107,9 @@ public class System1 {
                     }
                 case 3:
                     try {
-                        *//*giving();
+                        *//*
+*/
+/*giving();
                     System.out.println("please insert Status full-timd --> 'ft' or half-time-->'ht'");
                     String status = scanner.next();
                     System.out.println("please insert faculty between 'math' and 'computer'");
@@ -113,6 +121,8 @@ public class System1 {
                     catch (Exception e){
                         System.out.println(e.getStackTrace());
                         break;*//*
+*/
+/*
                     }
                 case 4:
                     try {
@@ -125,7 +135,9 @@ public class System1 {
                         break;
                     }
                 case 5:
-*//*                    try {
+*//*
+*/
+/*                    try {
                         giving();
                     id = "S";
                     id = id + (rand.nextInt(1000));
@@ -137,6 +149,8 @@ public class System1 {
                         System.out.println(e.getStackTrace());
                         break;
                     }*//*
+*/
+/*
                 case 6:
                     try{
                     System.out.println("insert id");
@@ -240,7 +254,8 @@ public class System1 {
                     isTrue = false;
             }
         }
-*/
+*//*
+
 //    }
 
     public void student(String user) {
@@ -342,7 +357,8 @@ public class System1 {
                         break;
                     }
                 case 2:
-              /*      try {
+              */
+/*      try {
                         system0.showMyStudent(fc);
                         System.out.println("insert id of student");
                         select1 = scanner.next();
@@ -355,7 +371,8 @@ public class System1 {
                         break;
                     } catch (InputMismatchException e) {
                         System.out.println("your grade is not true");
-                    }*/
+                    }*//*
+
 
                 case 3:
                     try{
@@ -377,15 +394,9 @@ public class System1 {
 
     public boolean search(String user, String password, char e) {
         if (e == 'e')
-            if (system0.isCheckEmployee(user, password))
-                return true;
-            else
-                return false;
+            return system0.isCheckEmployee(user, password);
         else if (e == 's')
-            if (system0.isCheckerStudent(user, password))
-                return true;
-            else
-                return false;
+            return system0.isCheckerStudent(user, password);
         else if (e == 'p')
             return system0.isCheckProfessor(user, password);
 
@@ -393,6 +404,7 @@ public class System1 {
 
     }
 
+*/
 /*    public void showEmployeeAction() {
         System.out.println("for sing up modul.Employee insert 1");
         System.out.println("for remove modul.Employee insert 2");
@@ -409,8 +421,10 @@ public class System1 {
         System.out.println("for see your information insert 13");
         System.out.println("exit 14");
         System.out.println("plese insert number");
-    }*/
+    }*//*
 
+
+*/
 /*    public void giving() {
         System.out.println("please insert user");
         this.user = scanner.next();
@@ -422,7 +436,9 @@ public class System1 {
         this.date = scanner.next();
         System.out.println("please insert national code");
         this.nationalCode = scanner.next();
-    }*/
+    }*//*
+
 
 
 }
+*/

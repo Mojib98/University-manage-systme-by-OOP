@@ -31,14 +31,12 @@ public class Student extends Person {
     }
 
     public Student(String name, String id, String date, String nationalCode,
-                   String user, String password, String faculty,
-                   int units, Integer lastScore) {
+                   String user, String password, String faculty) {
         super(name, id, date, nationalCode);
         this.user = user;
         this.password = password;
         this.faculty = faculty;
-        this.units = units;
-        this.lastScore = lastScore;
+
     }
 
 

@@ -1,3 +1,4 @@
+/*
 package system;
 
 import modul.*;
@@ -24,10 +25,8 @@ public class System0 {
     }
 
     public boolean isCheckEmployee(String user,String password){
-        try {if (emplyeeList.set(user,password))
-            return true;
-        else
-            return false;
+        try {
+            return emplyeeList.set(user, password);
     }catch (NullPointerException e){
             System.out.println(e.getStackTrace());
             return false;
@@ -51,10 +50,7 @@ public class System0 {
     }
     public boolean isCheckerStudent(String user,String password){
      try {
-         if (studentList.set(user,password))
-             return true;
-         else
-             return false;
+         return studentList.set(user, password);
      }catch (NullPointerException e){
          System.out.println(e.getStackTrace());
          return false;
@@ -172,3 +168,4 @@ public class System0 {
       }}
 
 }
+*/
