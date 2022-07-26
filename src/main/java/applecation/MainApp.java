@@ -17,6 +17,7 @@ public class MainApp {
     List<Employee> employeeList = new ArrayList<>();
     Scanner scanner = new Scanner(System.in);
     EmployeeApp employeeApp = new EmployeeApp(courseList,employeeList,professorList,studentList);
+    StudentApp studentApp = new StudentApp(courseList);
     public void employeeMenu(){
       boolean isRunner=true;
         while (isRunner){
@@ -85,4 +86,14 @@ public class MainApp {
         System.out.println("exit 14");
         System.out.println("plese insert number");
     }
+    public void StudentMenu(){
+        boolean isRunner=true;
+        while (isRunner){
+            System.out.println("\tfor select Course insert 1" +
+                    "\n\tfor delete insert 2" +
+                    "\n\tfor see your information insert 3");
+
+        }
+    }
+
 }

@@ -1,6 +1,8 @@
 package modul;
 
-import java.util.*;
+import lombok.Data;
+
+@Data
 public class Course {
     private int id;
     private String name;
@@ -25,54 +27,7 @@ public class Course {
         System.out.println(this.factuly);
     }
 
-    public String getFactuly() {
-        return factuly;
-    }
 
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getUnit() {
-        return unit;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setUnit(int unit) {
-        this.unit = unit;
-    }
-
-    public String getProfessorName() {
-        return professorName;
-    }
-
-    public void setFactuly(String factuly) {
-        this.factuly = factuly;
-    }
-
-    public int getGrade() {
-        return grade;
-    }
-
-    public void setGrade(int grade) {
-        this.grade = grade;
-    }
-
-    public void setProfessorName(String professorName) {
-        this.professorName = professorName;
-
-    }
 
     @Override
     public String toString() {
