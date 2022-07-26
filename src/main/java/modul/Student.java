@@ -1,22 +1,35 @@
 package modul;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import modul.enumeration.Faculty;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Setter
 @Getter
+
 public class Student extends Person {
     private String user;
     private String password;
-    private String faculty;
+    private Faculty faculty;
     private int units;
     private List<SectionCourse> courseList = new ArrayList<>();
     private Integer lastScore;
+
+    public Student(String name, String id, Date date, String nationalCode) {
+        super(name, id, date, nationalCode);
+    }
+
+    public Student(String name, String id, Date date, String nationalCode, String user, String password, Faculty faculty, int units, Integer lastScore) {
+        super(name, id, date, nationalCode);
+        this.user = user;
+        this.password = password;
+        this.faculty = faculty;
+        this.units = units;
+        this.lastScore = lastScore;
+    }
 
     public void showMyInfo() {
 
@@ -29,7 +42,7 @@ public class Student extends Person {
 
         // System.out.println("hhh");
     }
-
+/*
     @Override
     public String toString() {
         return "Student{" +
@@ -77,5 +90,5 @@ public class Student extends Person {
             } else System.out.println("not find");
 
         }
-    }
+    }*/
 }

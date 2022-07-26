@@ -104,7 +104,7 @@ public class EmployeeApp {
             System.out.println("please insert your faculty between 'math' or 'computer'");
             String fc = scanner.next();
             int ids = (rand.nextInt(1000));
-            employeeSystem.insertCourse(ids, this.name, unit, pro, fc);
+//            employeeSystem.insertCourse(ids, this.name, unit, pro, fc);
         } catch (InputMismatchException e) {
             System.out.println("your unit course is not true");
         }
