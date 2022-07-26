@@ -68,10 +68,10 @@ public class EmployeeSystem {
         System.out.println("\t\tyour employee added is index in system is:"+emplyeeList.indexOf(employee));
     }
 
-    public void removeEmplyee(String id) {
+    public void removeEmplyee(Employee employee) {
         try {
-            emplyeeList.remove(id);
-        } catch (NullPointerException e) {
+            emplyeeList.remove(employee);
+        } catch (Exception e) {
             System.out.println(e.getStackTrace());
 
         }
