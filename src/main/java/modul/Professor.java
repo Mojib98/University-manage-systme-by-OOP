@@ -1,56 +1,35 @@
 package modul;
-public class Professor extends Employee {
-    private String status;
-    private String faculty;
+
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import modul.enumeration.Faculty;
+import modul.enumeration.Status;
+
+import java.util.Date;
+@Setter
+@Getter
+
+public class Professor extends  Employee {
+    private Status status;
+    private Faculty faculty;
     private int unit = 0;
 
-    public String getFaculty() {
-        return faculty;
-    }
-
-    public Professor(String name, String id, String date, String nationalCode, String status, String user, String password, String status1, String faculty) {
+    public Professor(String name, String id, Date date, String nationalCode, String status, String user, String password) {
         super(name, id, date, nationalCode, status, user, password);
-        this.status = status1;
-        this.faculty = faculty;
     }
 
-    public void showInformation(){
-        System.out.println("name : "+this.getName());
-        System.out.println("id: " + this.getId());
-        System.out.println("national code "+this.getNationalCode());
-        System.out.println("status : "+this.getStatus());
-        System.out.println("faculty: "+getFaculty());
-    }
+
+
 
     @Override
-    public String getStatus() {
-        return status;
-    }
-
-    public int getSalary1() {
-        if (unit == 0)
-           return getSalary();
+    public int getSalary() {
+        if (status.equals(Status.HALTTIME))
+           return super.getSalary();
         else
             return this.unit*1000000;
     }
 
-    public void setUnit(int unit) {
-        this.unit += unit;
-    }
-
-    @Override
-    public int getSalary() {
-        return super.getSalary();
-    }
-
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "status='" + status + '\'' +
-                ", faculty='" + faculty + '\'' +
-                ", unit=" + unit +
-                "} " + super.toString();
-    }
 }
 
 

@@ -5,6 +5,7 @@ import modul.Employee;
 import modul.Professor;
 import modul.Student;
 
+import java.util.Date;
 import java.util.List;
 
 public class EmployeeSystem {
@@ -26,8 +27,8 @@ public class EmployeeSystem {
 
     public void insertCourse(int id, String name, int unit, String professor, String factuly){
         try {
-            course = new Course(id,name,unit,professor,factuly);
-            courseList.add(course);
+//            course = new Course(id,name,unit,professor,factuly);
+//            courseList.add(course);
         }catch (NullPointerException e){
             System.out.println(e.getStackTrace());
 
@@ -41,8 +42,8 @@ public class EmployeeSystem {
 
         }}
     public void insertEmployee(String user,String pas,String name,String id,String date,String national){
-        employee = new Employee(name,id,date,national,"ACTIVE",user,pas);
-        emplyeeList.add(employee);
+//        employee = new Employee(name,id,name,new Date(11,1,1),national,"ACTIVE",user,pas);
+//        emplyeeList.add(employee);
         System.out.printf("your employee added");
     }
     public void removeEmplyee(String id){
@@ -53,9 +54,9 @@ public class EmployeeSystem {
 
         }}
     public void insertProfessor(String user,String pass,String name,String id,String date,String nationaCode,String status,String faculty){
-
-        professor = new Professor(name,id,date,nationaCode,status,user,pass,status,faculty);
-        professorList.add(professor);
+//
+//        professor = new Professor(name,id,date,nationaCode,status,user,pass,status,faculty);
+//        professorList.add(professor);
     }
     public void removeProfessor(String id){
         professorList.remove(id);
