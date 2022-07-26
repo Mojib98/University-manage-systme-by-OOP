@@ -1,3 +1,4 @@
+/*
 package applecation;
 
 import modul.Course;
@@ -28,14 +29,16 @@ public class StudentApp {
     }
 
     private boolean controlCourse(Course course) {
-    /*    if (course.getFactuly().equals(student.getFaculty()))
+    */
+/*    if (course.getFactuly().equals(student.getFaculty()))
             return true;
-        else return false;*/
-        return course.getFactuly().equals(student.getFaculty());
+        else return false;*//*
+
+        return course.getFaculty().equals(student.getFaculty());
     }
     private Course findCorse(String name){
         for (Course c:list){
-            if (c.getName().equals(name) & c.getFactuly().equals(student.getFaculty()))
+            if (c.getName().equals(name) & c.getFaculty().equals(student.getFaculty()))
                 return c;
         }
         return null;
@@ -45,4 +48,4 @@ public class StudentApp {
         this.student = student;
         studentSystem.setStudent(student);
     }
-}
+}*/

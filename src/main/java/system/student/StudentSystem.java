@@ -8,15 +8,15 @@ public class StudentSystem {
     Student student;
 
 
-    public void selectCourse(Course course) {
+/*    public void selectCourse(Course course) {
         SectionCourse sectionCourse = new SectionCourse(course.getId()
                 , course.getName()
                 , course.getUnit()
                 , course.getProfessorName()
-                , course.getFactuly()
+                , course.getFaculty()
                 , 0);
         student.insertCourse(sectionCourse);
-    }
+    }*/
     public void myInfo(){
         System.out.println(student);
     }
