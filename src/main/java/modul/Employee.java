@@ -1,6 +1,7 @@
 package modul;
 
 import lombok.*;
+import modul.enumeration.Status;
 
 import java.util.Date;
 
@@ -8,11 +9,11 @@ import java.util.Date;
 @Getter
 
 public class Employee extends Person {
-    private String status;
+    private Status status;
     private String user;
     private String password;
 
-    public Employee(String name, String id, Date date, String nationalCode, String status, String user, String password) {
+    public Employee(String name, String id, Date date, String nationalCode, Status status, String user, String password) {
         super(name, id, date, nationalCode);
         this.status = status;
         this.user = user;

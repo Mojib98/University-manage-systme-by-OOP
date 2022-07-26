@@ -5,6 +5,7 @@ import modul.Employee;
 import modul.Professor;
 import modul.Student;
 import modul.enumeration.Faculty;
+import modul.enumeration.Status;
 
 import java.util.Date;
 import java.util.List;
@@ -37,23 +38,34 @@ public class EmployeeSystem {
             courseList.add(course);
         } catch (Exception e) {
             throw e;
-
         }
     }
 
     public void removeCourse(int id) {
         try {
             courseList.remove(id);
-        } catch (NullPointerException e) {
+        } catch (Exception e) {
             System.out.println(e.getStackTrace());
 
         }
     }
+    public void modifyCourse(Integer index,Course course){
+        courseList.set(index,course);
+    }
 
-    public void insertEmployee(String user, String pas, String name, String id, String date, String national) {
-//        employee = new Employee(name,id,name,new Date(11,1,1),national,"ACTIVE",user,pas);
-//        emplyeeList.add(employee);
-        System.out.printf("your employee added");
+    public void insertEmployee(String user, String password, String name, String id, Date date, String national) {
+            checker(user);
+            checker(password);
+            checker(id);
+            checker(date);
+            checker(national);
+        try {
+            employee = new Employee(name,id,date,national, Status.ACTIVE,user,password);
+            emplyeeList.add(employee);
+        }catch (Exception e){
+            throw e;
+        }
+        System.out.println("\t\tyour employee added is index in system is:"+emplyeeList.indexOf(employee));
     }
 
     public void removeEmplyee(String id) {
