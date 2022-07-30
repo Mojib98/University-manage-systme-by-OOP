@@ -18,17 +18,14 @@ public class Student extends Person {
     private List<SectionCourse> courseList = new ArrayList<>();
     private Integer lastScore;
 
-    public Student(String name, String id, Date date, String nationalCode) {
-        super(name, id, date, nationalCode);
-    }
 
-    public Student(String name, String id, Date date, String nationalCode, String user, String password, Faculty faculty, int units, Integer lastScore) {
+
+    public Student(String name, String id, Date date, String nationalCode, String user, String password, Faculty faculty) {
         super(name, id, date, nationalCode);
         this.user = user;
         this.password = password;
         this.faculty = faculty;
-        this.units = units;
-        this.lastScore = lastScore;
+
     }
 
     public void showMyInfo() {

@@ -12,12 +12,9 @@ import java.util.List;
 
 public class EmployeeSystem {
     private List<Course> courseList;
-    private Course course;
     private Employee employee;
     private List<Employee> emplyeeList;
     private List<Professor> professorList;
-    private Professor professor;
-    private Student student;
     private List<Student> studentList;
 
     public EmployeeSystem(List<Course> courseList, List<Employee> emplyeeList, List<Professor> professorList, List<Student> studentList) {
@@ -34,7 +31,7 @@ public class EmployeeSystem {
         checker(professor);
         checker(factuly);
         try {
-            course = new Course(id,name,unit,professor,factuly);
+            Course course = new Course(id, name, unit, professor, factuly);
             courseList.add(course);
         } catch (Exception e) {
             throw e;
@@ -49,23 +46,22 @@ public class EmployeeSystem {
 
         }
     }
-    public void modifyCourse(Integer index,Course course){
-        courseList.set(index,course);
+
+    public void modifyCourse(Integer index, Course course) {
+        courseList.set(index, course);
     }
 
     public void insertEmployee(String user, String password, String name, String id, Date date, String national) {
-            checker(user);
-            checker(password);
-            checker(id);
-            checker(date);
-            checker(national);
-        try {
-            employee = new Employee(name,id,date,national, Status.ACTIVE,user,password);
-            emplyeeList.add(employee);
-        }catch (Exception e){
-            throw e;
-        }
-        System.out.println("\t\tyour employee added is index in system is:"+emplyeeList.indexOf(employee));
+        checker(user);
+        checker(password);
+        checker(id);
+        checker(date);
+        checker(national);
+
+
+        Employee employee = new Employee(name, id, date, national, Status.ACTIVE, user, password);
+        emplyeeList.add(employee);
+        System.out.println("\t\tyour employee added is index in system is:" + emplyeeList.indexOf(employee));
     }
 
     public void removeEmplyee(Employee employee) {
@@ -77,37 +73,49 @@ public class EmployeeSystem {
         }
     }
 
-    public void insertProfessor(String user, String pass, String name, String id, String date, String nationaCode, String status, String faculty) {
-//
-//        professor = new Professor(name,id,date,nationaCode,status,user,pass,status,faculty);
-//        professorList.add(professor);
+    public void insertProfessor(String user, String password, String name, String id, Date date,
+                                String nationaCode, Status status, Faculty faculty) {
+        checker(user);
+        checker(password);
+        checker(name);
+        checker(id);
+        checker(date);
+        checker(status);
+        checker(name);
+        checker(faculty);
+        Professor professor = new Professor(name, id, date, nationaCode, status, user, password, faculty);
+        professorList.add(professor);
     }
 
-    public void removeProfessor(String id) {
-        professorList.remove(id);
+    public void removeProfessor(Professor professor) {
+        professorList.remove(professor);
     }
 
-    public void insertStudent(String user, String password, String name, String id, String date, String nationaCode, String fac) {
+    public void insertStudent(String user, String password, String name, String id, Date date, String nationaCode, Faculty faculty) {
+        checker(user);
+        checker(password);
+        checker(date);
+        checker(name);
+        checker(faculty);
+        checker(nationaCode);
 
-//        student = new Student(name,id,date,nationaCode,user,password,fac);
-//        studentList.add(student);
+        Student student = new Student(name, id, date, nationaCode, user, password, faculty);
+        studentList.add(student);
     }
 
-    public void removeStudent(String id) {
-        try {
-            studentList.remove(id);
-        } catch (NullPointerException e) {
-            System.out.println(e.getStackTrace());
-
-        }
+    public void removeStudent(Student student) {
+        checker(student);
+        studentList.remove(student);
     }
 
-    public void showCourse(String id) {
+    public void showALLCourse(String id) {
         for (Course c : courseList)
             System.out.println(c);
     }
-    public void checker(Object object){
-        if (object==null)
+
+
+    public void checker(Object object) {
+        if (object == null)
             throw new IllegalStateException("some thing wrong please try again");
     }
 }

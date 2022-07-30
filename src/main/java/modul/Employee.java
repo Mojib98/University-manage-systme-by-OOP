@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 
 public class Employee extends Person {
-    private Status status;
+    protected Status status;
     private String user;
     private String password;
 

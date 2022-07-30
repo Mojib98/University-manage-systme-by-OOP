@@ -11,12 +11,12 @@ import java.util.Date;
 @Getter
 
 public class Professor extends  Employee {
-    private Status status;
     private Faculty faculty;
     private int unit = 0;
 
-    public Professor(String name, String id, Date date, String nationalCode, String status, String user, String password) {
+    public Professor(String name, String id, Date date, String nationalCode, Status status, String user, String password,Faculty faculty) {
         super(name, id, date, nationalCode, status, user, password);
+        this.faculty=faculty;
     }
 
 

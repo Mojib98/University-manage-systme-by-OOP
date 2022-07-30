@@ -1,3 +1,4 @@
+/*
 package applecation;
 
 import modul.Course;
@@ -97,3 +98,4 @@ public class MainApp {
     }
 
 }
+*/
