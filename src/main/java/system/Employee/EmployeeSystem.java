@@ -9,11 +9,13 @@ import modul.enumeration.Status;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 
 public class EmployeeSystem {
     private List<Course> courseList;
     private Employee employee;
     private List<Employee> emplyeeList;
+    private Random rand;
     private List<Professor> professorList;
     private List<Student> studentList;
 
@@ -22,9 +24,12 @@ public class EmployeeSystem {
         this.emplyeeList = emplyeeList;
         this.professorList = professorList;
         this.studentList = studentList;
+        this.rand = new Random();
+
     }
 
-    public void insertCourse(Integer id, String name, Integer unit, Professor professor, Faculty factuly) {
+    public void insertCourse(String name, Integer unit, Professor professor, Faculty factuly) {
+        Integer id = (rand.nextInt(1000));
         checker(id);
         checker(name);
         checker(unit);
@@ -51,14 +56,14 @@ public class EmployeeSystem {
         courseList.set(index, course);
     }
 
-    public void insertEmployee(String user, String password, String name, String id, Date date, String national) {
+    public void insertEmployee(String user, String password, String name, Date date, String national) {
+        String id = "E";
+        id = id + (rand.nextInt(1000));
         checker(user);
         checker(password);
         checker(id);
         checker(date);
         checker(national);
-
-
         Employee employee = new Employee(name, id, date, national, Status.ACTIVE, user, password);
         emplyeeList.add(employee);
         System.out.println("\t\tyour employee added is index in system is:" + emplyeeList.indexOf(employee));
@@ -73,8 +78,10 @@ public class EmployeeSystem {
         }
     }
 
-    public void insertProfessor(String user, String password, String name, String id, Date date,
+    public void insertProfessor(String user, String password, String name, Date date,
                                 String nationaCode, Status status, Faculty faculty) {
+        String id = "P";
+        id = id + (rand.nextInt(2000));
         checker(user);
         checker(password);
         checker(name);
@@ -91,7 +98,9 @@ public class EmployeeSystem {
         professorList.remove(professor);
     }
 
-    public void insertStudent(String user, String password, String name, String id, Date date, String nationaCode, Faculty faculty) {
+    public void insertStudent(String user, String password, String name, Date date, String nationaCode, Faculty faculty) {
+        String id = "S";
+        id = id + (rand.nextInt(3000));
         checker(user);
         checker(password);
         checker(date);

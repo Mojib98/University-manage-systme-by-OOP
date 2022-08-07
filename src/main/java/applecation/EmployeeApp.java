@@ -8,27 +8,20 @@ import system.Employee.EmployeeSystem;
 import java.util.*;
 
 public class EmployeeApp {
-    private List<Course> courseList;
-    private Course course;
-    private Employee employee;
-    private List<Employee> emplyeeList;
-    private List<Professor> professorList;
-    private Professor professor;
-    private Student student;
-    private List<Student> studentList;
+    private final List<Course> courseList;
+    private final List<Employee> emplyeeList;
+    private final List<Professor> professorList;
+    private final List<Student> studentList;
     private String name, date, nationalCode, user, password;
-    private Random rand;
-    private Scanner scanner;
-    private String id;
-    private EmployeeSystem employeeSystem;
+    private final Scanner scanner;
+    private final EmployeeSystem employeeSystem;
 
     public EmployeeApp(List<Course> courseList, List<Employee> emplyeeList, List<Professor> professorList, List<Student> studentList) {
         this.courseList = courseList;
         this.emplyeeList = emplyeeList;
         this.professorList = professorList;
         this.studentList = studentList;
-        this.rand = new Random();
-       this.scanner = new Scanner(System.in);
+        this.scanner = new Scanner(System.in);
         this.employeeSystem = new EmployeeSystem(this.courseList, this.emplyeeList, this.professorList, this.studentList);
     }
 
@@ -53,9 +46,7 @@ public class EmployeeApp {
             String status = scanner.next().toUpperCase(Locale.ROOT);
             System.out.println("please insert faculty between 'math' and 'computer'");
             String faculty = scanner.next().toUpperCase(Locale.ROOT);
-            id = "P";
-            id = id + (rand.nextInt(2000));
-            employeeSystem.insertProfessor(this.user, this.password, this.name, id, new Date(), this.nationalCode, Status.valueOf(status), Faculty.valueOf(faculty));
+            employeeSystem.insertProfessor(this.user, this.password, this.name, new Date(), this.nationalCode, Status.valueOf(status), Faculty.valueOf(faculty));
         } catch (
                 Exception e) {
             System.out.println(e.getStackTrace());
@@ -65,11 +56,9 @@ public class EmployeeApp {
     public void insertStudent() {
         try {
             giving();
-            id = "S";
-            id = id + (rand.nextInt(3000));
             System.out.println("insert faculty between 'computer' or 'math'");
             String fac = scanner.next();
-            employeeSystem.insertStudent(this.user, this.password, this.name, id, new Date(), this.nationalCode, Faculty.valueOf(fac));
+            employeeSystem.insertStudent(this.user, this.password, this.name, new Date(), this.nationalCode, Faculty.valueOf(fac));
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
@@ -78,9 +67,8 @@ public class EmployeeApp {
     public void insertEmployee() {
         try {
             giving();
-            id = "E";
-            id = id + (rand.nextInt(1000));
-            employeeSystem.insertEmployee(this.user, this.password, this.name, id, new Date(), this.nationalCode);
+
+            employeeSystem.insertEmployee(this.user, this.password, this.name, new Date(), this.nationalCode);
             System.out.println("your employee add");
         } catch (NullPointerException e) {
             System.err.println("your employee add");
@@ -105,7 +93,6 @@ public class EmployeeApp {
             }
             System.out.println("please insert your faculty between 'math' or 'computer'");
             String fc = scanner.next();
-            int ids = (rand.nextInt(1000));
 //            employeeSystem.insertCourse(ids, this.name, unit, pro, fc);
         } catch (InputMismatchException e) {
             System.out.println("your unit course is not true");
