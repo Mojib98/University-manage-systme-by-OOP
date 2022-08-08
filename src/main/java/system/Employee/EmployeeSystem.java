@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Random;
 
 public class EmployeeSystem {
-    private List<Course> courseList;
+    private final List<Course> courseList;
     private Employee employee;
-    private List<Employee> emplyeeList;
-    private Random rand;
-    private List<Professor> professorList;
-    private List<Student> studentList;
+    private final List<Employee> emplyeeList;
+    private final Random rand;
+    private final List<Professor> professorList;
+    private final List<Student> studentList;
 
     public EmployeeSystem(List<Course> courseList, List<Employee> emplyeeList, List<Professor> professorList, List<Student> studentList) {
         this.courseList = courseList;
@@ -43,9 +43,9 @@ public class EmployeeSystem {
         }
     }
 
-    public void removeCourse(int id) {
+    public void removeCourse(Course course) {
         try {
-            courseList.remove(id);
+            courseList.remove(course);
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
 
@@ -57,16 +57,21 @@ public class EmployeeSystem {
     }
 
     public void insertEmployee(String user, String password, String name, Date date, String national) {
-        String id = "E";
-        id = id + (rand.nextInt(1000));
-        checker(user);
-        checker(password);
-        checker(id);
-        checker(date);
-        checker(national);
-        Employee employee = new Employee(name, id, date, national, Status.ACTIVE, user, password);
-        emplyeeList.add(employee);
-        System.out.println("\t\tyour employee added is index in system is:" + emplyeeList.indexOf(employee));
+        try {
+            String id = "E";
+            id = id + (rand.nextInt(1000));
+            checker(user);
+            checker(password);
+            checker(id);
+            checker(date);
+            checker(national);
+            Employee employee = new Employee(name, id, date, national, Status.ACTIVE, user, password);
+            emplyeeList.add(employee);
+            System.out.println("\t\tyour employee added is index in system is:" + emplyeeList.indexOf(employee));
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("your employee not insert");
+        }
     }
 
     public void removeEmplyee(Employee employee) {
