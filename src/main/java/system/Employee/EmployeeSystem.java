@@ -13,7 +13,6 @@ import java.util.Random;
 
 public class EmployeeSystem {
     private final List<Course> courseList;
-    private Employee employee;
     private final List<Employee> emplyeeList;
     private final Random rand;
     private final List<Professor> professorList;
@@ -82,9 +81,10 @@ public class EmployeeSystem {
 
         }
     }
-    public void modifyEmplyee(Employee employee,Integer index) {
+
+    public void modifyEmplyee(Employee employee, Integer index) {
         try {
-            emplyeeList.set(index,employee);
+            emplyeeList.set(index, employee);
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
 
@@ -106,9 +106,10 @@ public class EmployeeSystem {
         Professor professor = new Professor(name, id, date, nationaCode, status, user, password, faculty);
         professorList.add(professor);
     }
-    public void modifyProfessor(Professor professor,Integer index) {
+
+    public void modifyProfessor(Professor professor, Integer index) {
         try {
-            professorList.set(index,professor);
+            professorList.set(index, professor);
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
 
@@ -137,9 +138,10 @@ public class EmployeeSystem {
         checker(student);
         studentList.remove(student);
     }
-    public void modifyStudent( Student student,Integer index) {
+
+    public void modifyStudent(Student student, Integer index) {
         try {
-            studentList.set(index,student);
+            studentList.set(index, student);
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
 
@@ -150,7 +152,6 @@ public class EmployeeSystem {
         for (Course c : courseList)
             System.out.println(c);
     }
-
 
     public void checker(Object object) {
         if (object == null)

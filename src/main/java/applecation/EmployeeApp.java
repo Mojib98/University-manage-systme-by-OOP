@@ -189,5 +189,28 @@ public class EmployeeApp {
             break;
         }
     }
+
+    private Faculty selectFaculty() {
+        while (true) {
+            System.out.println("\t\tplease select between faculty\n\t\t'MATH'," +
+                    "\n\t\t'COMPUTER',\n\t\t'HUMANITIES',\n\t\t'ART',\n\t\t'ENGINEERING' ");
+            String select = scanner.nextLine().toUpperCase(Locale.ROOT);
+            switch (select) {
+                case ("MATH"):
+                    return Faculty.MATH;
+                case ("COMPUTER"):
+                    return Faculty.COMPUTER;
+                case ("HUMANITIES"):
+                    return Faculty.HUMANITIES;
+                case ("ENGINEERING"):
+                    return Faculty.ENGINEERING;
+                case ("ART"):
+                    return Faculty.ART;
+                default:
+                    continue;
+            }
+        }
+
+    }
 }
 
