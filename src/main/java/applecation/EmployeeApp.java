@@ -104,14 +104,18 @@ public class EmployeeApp {
     public void deleteStudent() {
         try {
             System.out.println("insert Student name");
-            String name = scanner.next();
+            String name = scanner.nextLine();
+            Student student= studentList.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
+             employeeSystem.removeStudent(student);
+/*
+
             var list2 = studentList.iterator();
             while (list2.hasNext()) {
                 if (list2.next().getName().equals(name)) ;
                 System.out.println(list2 + " is delete");
                 list2.remove();
                 break;
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -121,13 +125,16 @@ public class EmployeeApp {
         try {
             System.out.println("insert professor name");
             String name = scanner.next();
-            var list2 = professorList.iterator();
+            Professor professor =findProfessor();
+            employeeSystem.removeProfessor(professor);
+
+        /*    var list2 = professorList.iterator();
             while (list2.hasNext()) {
                 if (list2.next().getName().equals(name)) ;
                 System.out.println(list2.next() + " is delete");
                 list2.remove();
                 break;
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -154,28 +161,51 @@ public class EmployeeApp {
         try {
             System.out.println("insert employee name");
             String name = scanner.next();
-            for (Employee e : emplyeeList) {
+            Employee employee = emplyeeList.stream().filter(p -> p.getName().equals(name)).findFirst().orElseThrow();
+            employeeSystem.removeEmplyee(employee);
+         /*   for (Employee e : emplyeeList) {
                 if (e.getName().equals(name)) {
                     System.out.println(e);
                     emplyeeList.remove(e);
                     break;
                 }
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
     public void modifyProfessor() {
+        giving();
+        Status status = selectStatus();
+        Faculty faculty = selectFaculty();
+        Professor professor =findProfessor();
+        Integer index = professorList.indexOf(professor);
+        employeeSystem.modifyProfessor(professor,index);
     }
 
     public void modifyStudent() {
+        giving();
+        Status status = selectStatus();
+        Faculty faculty = selectFaculty();
+        Professor professor =findProfessor();
+        Integer index = professorList.indexOf(professor);
     }
 
     public void modifyEmployee() {
+        giving();
+        Status status = selectStatus();
+        Faculty faculty = selectFaculty();
+        Professor professor =findProfessor();
+        Integer index = professorList.indexOf(professor);
     }
 
     public void modifyCourse() {
+        giving();
+        Status status = selectStatus();
+        Faculty faculty = selectFaculty();
+        Professor professor =findProfessor();
+        Integer index = professorList.indexOf(professor);
     }
 
     public void myInformation(String name) {
