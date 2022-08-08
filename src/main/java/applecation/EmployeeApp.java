@@ -42,11 +42,9 @@ public class EmployeeApp {
     public void insertProfessor() {
         try {
             giving();
-            System.out.println("please insert Status full-timd --> 'ft' or half-time-->'ht'");
-            String status = scanner.next().toUpperCase(Locale.ROOT);
-            System.out.println("please insert faculty between 'math' and 'computer'");
-            String faculty = scanner.next().toUpperCase(Locale.ROOT);
-            employeeSystem.insertProfessor(this.user, this.password, this.name, new Date(), this.nationalCode, Status.valueOf(status), Faculty.valueOf(faculty));
+            Status status = selectStatus();
+            Faculty faculty = selectFaculty();
+            employeeSystem.insertProfessor(this.user, this.password, this.name, new Date(), this.nationalCode, status, faculty);
         } catch (
                 Exception e) {
             System.out.println(e.getStackTrace());
@@ -206,6 +204,24 @@ public class EmployeeApp {
                     return Faculty.ENGINEERING;
                 case ("ART"):
                     return Faculty.ART;
+                default:
+                    continue;
+            }
+        }
+
+    }
+    private Status selectStatus() {
+        while (true) {
+            System.out.println("\t\tplease select between status\n\t\t'FULLTIME'," +
+                    "\n\t\t'HALTTIME',\n\t\t'ACTIVE' ");
+            String select = scanner.nextLine().toUpperCase(Locale.ROOT);
+            switch (select) {
+                case ("FULLTIME"):
+                    return Status.FULLTIME;
+                case ("HALTTIME"):
+                    return Status.HALTTIME;
+                case ("ACTIVE"):
+                    return Status.ACTIVE;
                 default:
                     continue;
             }
