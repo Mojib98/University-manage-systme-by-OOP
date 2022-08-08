@@ -1,3 +1,4 @@
+/*
 package applecation;
 
 import modul.SectionCourse;
@@ -43,3 +44,4 @@ public class ProfessorApp {
         }
     }
 }
+*/

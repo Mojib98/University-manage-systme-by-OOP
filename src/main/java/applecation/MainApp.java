@@ -1,4 +1,3 @@
-/*
 package applecation;
 
 import modul.Course;
@@ -11,19 +10,30 @@ import java.util.List;
 import java.util.Scanner;
 
 public class MainApp {
-     String name;
-    List<Student> studentList = new ArrayList<>();
-    List<Professor> professorList = new ArrayList<>();
-    List<Course> courseList = new ArrayList<>();
-    List<Employee> employeeList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
-    EmployeeApp employeeApp = new EmployeeApp(courseList,employeeList,professorList,studentList);
-    StudentApp studentApp = new StudentApp(courseList);
-    public void employeeMenu(){
-      boolean isRunner=true;
-        while (isRunner){
+    String name;
+    private List<Student> studentList;
+    private List<Professor> professorList;
+    private List<Course> courseList;
+    private List<Employee> employeeList;
+    private Scanner scanner;
+
+    public MainApp() {
+        this.studentList = new ArrayList<>();
+        this.professorList = new ArrayList<>();
+        this.courseList = new ArrayList<>();
+        this.employeeList = new ArrayList<>();
+        this.scanner = new Scanner(System.in);
+
+    }
+
+    EmployeeApp employeeApp = new EmployeeApp(courseList, employeeList, professorList, studentList);
+//    StudentApp studentApp = new StudentApp(courseList);
+
+    public void employeeMenu() {
+        boolean isRunner = true;
+        while (isRunner) {
             showEmployeeAction();
-            int select=scanner.nextInt();
+            int select = scanner.nextInt();
             switch (select) {
                 case 1:
                     employeeApp.insertEmployee();
@@ -65,14 +75,15 @@ public class MainApp {
                     employeeApp.myInformation(this.name);
                     break;
                 case 14:
-                    isRunner=false;
+                    isRunner = false;
 
             }
         }
     }
+
     private void showEmployeeAction() {
-        System.out.println("for sing up modul.Employee insert 1");
-        System.out.println("for remove modul.Employee insert 2");
+        System.out.println("for sing up Employee insert 1");
+        System.out.println("for remove Employee insert 2");
         System.out.println("for sing up professor insert 3");
         System.out.println("for remove professor insert 4");
         System.out.println("for sing up modul.Student insert 5");
@@ -87,9 +98,10 @@ public class MainApp {
         System.out.println("exit 14");
         System.out.println("plese insert number");
     }
-    public void StudentMenu(){
-        boolean isRunner=true;
-        while (isRunner){
+
+    public void StudentMenu() {
+        boolean isRunner = true;
+        while (isRunner) {
             System.out.println("\tfor select Course insert 1" +
                     "\n\tfor delete insert 2" +
                     "\n\tfor see your information insert 3");
@@ -98,4 +110,3 @@ public class MainApp {
     }
 
 }
-*/

@@ -1,10 +1,13 @@
 package applecation;
 
+import exception.UserInputExcention;
 import modul.*;
 import modul.enumeration.Faculty;
 import modul.enumeration.Status;
 import system.Employee.EmployeeSystem;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class EmployeeApp {
@@ -13,6 +16,7 @@ public class EmployeeApp {
     private final List<Professor> professorList;
     private final List<Student> studentList;
     private String name, date, nationalCode, user, password;
+    private Date date1;
     private final Scanner scanner;
     private final EmployeeSystem employeeSystem;
 
@@ -27,16 +31,20 @@ public class EmployeeApp {
 
     private void giving() {
         System.out.println("please insert user");
-        this.user = scanner.next();
+        this.user = scanner.nextLine();
         System.out.println("please insert password");
-        this.password = scanner.next();
+        this.password = scanner.nextLine();
         System.out.println("please insert name");
-        this.name = scanner.next();
-        System.out.println("please insert date");
-        this.date = scanner.next();
-        Date date1 = new Date(date);
+        this.name = scanner.nextLine();
+        System.out.println("please insert date dd/MM/yyyy ");
+        this.date = scanner.nextLine();
+        try {
+            this.date1 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         System.out.println("please insert national code");
-        this.nationalCode = scanner.next();
+        this.nationalCode = scanner.nextLine();
     }
 
     public void insertProfessor() {
@@ -44,7 +52,7 @@ public class EmployeeApp {
             giving();
             Status status = selectStatus();
             Faculty faculty = selectFaculty();
-            employeeSystem.insertProfessor(this.user, this.password, this.name, new Date(), this.nationalCode, status, faculty);
+            employeeSystem.insertProfessor(this.user, this.password, this.name, this.date1, this.nationalCode, status, faculty);
         } catch (
                 Exception e) {
             System.out.println(e.getStackTrace());
@@ -64,8 +72,7 @@ public class EmployeeApp {
     public void insertEmployee() {
         try {
             giving();
-
-            employeeSystem.insertEmployee(this.user, this.password, this.name, new Date(), this.nationalCode);
+            employeeSystem.insertEmployee(this.user, this.password, this.name, this.date1, this.nationalCode);
             System.out.println("your employee add");
         } catch (NullPointerException e) {
             System.err.println("your employee add");
@@ -75,9 +82,9 @@ public class EmployeeApp {
 
     public void insertCourse() {
         try {
-            System.out.println("plese insert course name");
+            System.out.println("\t\tplease  insert course name");
             this.name = scanner.next();
-            System.out.println("please insert unit insert integer");
+            System.out.println("\t\tplease insert unit insert integer");
             int unit = scanner.nextInt();
             Professor professor = findProfessor();
             employeeSystem.insertCourse(this.name, unit, professor);
@@ -105,8 +112,8 @@ public class EmployeeApp {
         try {
             System.out.println("insert Student name");
             String name = scanner.nextLine();
-            Student student= studentList.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
-             employeeSystem.removeStudent(student);
+            Student student = studentList.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
+            employeeSystem.removeStudent(student);
 /*
 
             var list2 = studentList.iterator();
@@ -123,9 +130,7 @@ public class EmployeeApp {
 
     public void deleteProfessor() {
         try {
-            System.out.println("insert professor name");
-            String name = scanner.next();
-            Professor professor =findProfessor();
+            Professor professor = findProfessor();
             employeeSystem.removeProfessor(professor);
 
         /*    var list2 = professorList.iterator();
@@ -145,13 +150,15 @@ public class EmployeeApp {
         try {
             System.out.println("insert Course name");
             String name = scanner.next();
-            var list2 = courseList.iterator();
+            Course course = courseList.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
+            employeeSystem.removeCourse(course);
+         /*   var list2 = courseList.iterator();
             while (list2.hasNext()) {
                 if (list2.next().getName().equals(name)) ;
                 System.out.println(list2.next() + " is delete");
                 list2.remove();
                 break;
-            }
+            }*/
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -179,33 +186,53 @@ public class EmployeeApp {
         giving();
         Status status = selectStatus();
         Faculty faculty = selectFaculty();
-        Professor professor =findProfessor();
+        Professor professor = findProfessor();
+        professor.setFaculty(faculty);
+        professor.setStatus(status);
         Integer index = professorList.indexOf(professor);
-        employeeSystem.modifyProfessor(professor,index);
+        employeeSystem.modifyProfessor(professor, index);
     }
 
     public void modifyStudent() {
         giving();
-        Status status = selectStatus();
         Faculty faculty = selectFaculty();
-        Professor professor =findProfessor();
-        Integer index = professorList.indexOf(professor);
+        try {
+            Student student = studentList.stream().filter(p -> p.getName().equals(this.name)).findFirst()
+                    .orElseThrow(() -> new RuntimeException("your student not find"));
+            Integer index = studentList.indexOf(student);
+            assert student != null;
+            student.setFaculty(faculty);
+            employeeSystem.modifyStudent(student, index);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void modifyEmployee() {
         giving();
-        Status status = selectStatus();
-        Faculty faculty = selectFaculty();
-        Professor professor =findProfessor();
-        Integer index = professorList.indexOf(professor);
+        try {
+            Employee employee = emplyeeList.stream().filter(p -> p.getName().equals(this.name)).findFirst()
+                    .orElseThrow(() -> new RuntimeException("yor employee not find"));
+            Integer index = emplyeeList.indexOf(employee);
+            employeeSystem.modifyEmplyee(employee, index);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void modifyCourse() {
         giving();
         Status status = selectStatus();
         Faculty faculty = selectFaculty();
-        Professor professor =findProfessor();
-        Integer index = professorList.indexOf(professor);
+        try {
+            Course course = courseList.stream().filter(p -> p.getName().equals(this.name)).findFirst()
+                    .orElseThrow(() -> new RuntimeException("yor course not find"));
+            Professor professor = findProfessor();
+            Integer index = courseList.indexOf(course);
+            employeeSystem.modifyCourse(index, course);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
     public void myInformation(String name) {
@@ -239,6 +266,7 @@ public class EmployeeApp {
         }
 
     }
+
     private Status selectStatus() {
         while (true) {
             System.out.println("\t\tplease select between status\n\t\t'FULLTIME'," +

@@ -1,5 +1,6 @@
 package system.Employee;
 
+import exception.UserInputExcention;
 import modul.Course;
 import modul.Employee;
 import modul.Professor;
@@ -139,12 +140,9 @@ public class EmployeeSystem {
     }
 
     public void modifyStudent(Student student, Integer index) {
-        try {
             studentList.set(index, student);
-        } catch (Exception e) {
-            System.out.println(e.getStackTrace());
 
-        }
+
     }
 
     public void showALLCourse(String id) {
