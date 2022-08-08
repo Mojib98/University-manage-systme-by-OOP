@@ -8,4 +8,8 @@ import lombok.Setter;
 public class SectionCourse {
     private Course course;
     private int grade;
+
+    public SectionCourse(Course course) {
+        this.course = course;
+    }
 }

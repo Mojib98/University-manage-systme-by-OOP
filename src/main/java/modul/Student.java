@@ -62,17 +62,7 @@ public class Student extends Person {
     }
 
 
-    public void insertCourse(SectionCourse sectionCourse) {
-        if (this.lastScore >= 17) {
-            if (units + sectionCourse.getUnit() <= 24)
-                courseList.add(sectionCourse);
-        } else if (this.lastScore < 17 & this.lastScore > 14) {
-            if (units + sectionCourse.getUnit() <= 20) {
-                courseList.add(sectionCourse);
-            }
-        }
 
-    }
 
     public void remove(String name) {
         SectionCourse sectionCourse = null;
@@ -88,4 +78,16 @@ public class Student extends Person {
 
         }
     }*/
+public void insertCourse(SectionCourse sectionCourse) {
+   var sumUnit= courseList.stream().map((c)->c.getCourse().getUnit()).reduce(0, Integer::sum);
+    if (this.lastScore >= 17) {
+        if (units + sectionCourse.getUnit() <= 24)
+            courseList.add(sectionCourse);
+    } else if (this.lastScore < 17 & this.lastScore > 14) {
+        if (units + sectionCourse.getUnit() <= 20) {
+            courseList.add(sectionCourse);
+        }
+    }
+
+}
 }
