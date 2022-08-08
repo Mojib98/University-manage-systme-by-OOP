@@ -14,7 +14,6 @@ public class StudentApp {
     private Student student;
     private final StudentSystem studentSystem = new StudentSystem();
     private final Scanner scanner = new Scanner(System.in);
-    private final List<Course> courseList;
 
     public StudentApp(List<Course> list) {
         this.list = list;
@@ -28,18 +27,17 @@ public class StudentApp {
         System.out.println("please insert name");
         String name = scanner.next();
         Course course = listMyfaculty.stream().filter(course1 -> course1.getName().equals(name))
-                .findFirst().orElseThrow(()-new RuntimeException("course not find"));
+                .findFirst().orElseThrow(()->new RuntimeException("course not find"));
         if (course != null) {
             studentSystem.selectCourse(course);
         }
     }
 
     private boolean controlCourse(Course course) {
-        if (course.getFactuly().equals(student.getFaculty()))
+        if (course.getFaculty().equals(student.getFaculty()))
             return true;
         else return false;
 
-        return course.getFaculty().equals(student.getFaculty());
     }
 
     private Course findCorse(String name) {
