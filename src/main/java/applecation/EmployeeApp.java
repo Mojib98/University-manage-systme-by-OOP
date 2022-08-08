@@ -36,13 +36,7 @@ public class EmployeeApp {
         this.password = scanner.nextLine();
         System.out.println("please insert name");
         this.name = scanner.nextLine();
-        System.out.println("please insert date dd/MM/yyyy ");
-        this.date = scanner.nextLine();
-        try {
-            this.date1 = new SimpleDateFormat("dd/MM/yyyy").parse(date);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
+        this.date1 = getDate();
         System.out.println("please insert national code");
         this.nationalCode = scanner.nextLine();
     }
@@ -285,5 +279,21 @@ public class EmployeeApp {
         }
 
     }
+
+    private Date getDate() {
+        while (true) {
+            try {
+                System.out.println("please insert date dd/MM/yyyy ");
+                String date = scanner.nextLine();
+                return new SimpleDateFormat("dd/MM/yyyy").parse(date);
+            } catch (ParseException e) {
+                System.out.println("insert like pattern");
+                continue;
+
+            }
+        }
+
+    }
 }
+
 

@@ -16,6 +16,7 @@ public class MainApp {
     private List<Course> courseList;
     private List<Employee> employeeList;
     private Scanner scanner;
+    private EmployeeApp employeeApp;
 
     public MainApp() {
         this.studentList = new ArrayList<>();
@@ -23,10 +24,10 @@ public class MainApp {
         this.courseList = new ArrayList<>();
         this.employeeList = new ArrayList<>();
         this.scanner = new Scanner(System.in);
+        employeeApp = new EmployeeApp(courseList, employeeList, professorList, studentList);
 
     }
 
-    EmployeeApp employeeApp = new EmployeeApp(courseList, employeeList, professorList, studentList);
 //    StudentApp studentApp = new StudentApp(courseList);
 
     public void employeeMenu() {
