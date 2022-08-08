@@ -27,15 +27,14 @@ public class EmployeeSystem {
 
     }
 
-    public void insertCourse(String name, Integer unit, Professor professor, Faculty factuly) {
+    public void insertCourse(String name, Integer unit, Professor professor) {
         Integer id = (rand.nextInt(1000));
         checker(id);
         checker(name);
         checker(unit);
         checker(professor);
-        checker(factuly);
         try {
-            Course course = new Course(id, name, unit, professor, factuly);
+            Course course = new Course(id, name, unit, professor, professor.getFaculty());
             courseList.add(course);
         } catch (Exception e) {
             throw e;

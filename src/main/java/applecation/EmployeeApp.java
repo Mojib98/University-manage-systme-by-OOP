@@ -54,9 +54,8 @@ public class EmployeeApp {
     public void insertStudent() {
         try {
             giving();
-            System.out.println("insert faculty between 'computer' or 'math'");
-            String fac = scanner.next();
-            employeeSystem.insertStudent(this.user, this.password, this.name, new Date(), this.nationalCode, Faculty.valueOf(fac));
+            Faculty faculty = selectFaculty();
+            employeeSystem.insertStudent(this.user, this.password, this.name, new Date(), this.nationalCode, faculty);
         } catch (Exception e) {
             System.out.println(e.getStackTrace());
         }
@@ -80,27 +79,27 @@ public class EmployeeApp {
             this.name = scanner.next();
             System.out.println("please insert unit insert integer");
             int unit = scanner.nextInt();
-            System.out.println("please insert professor");
-            String pro = scanner.next();
-            Professor professor = findProfessor(pro);
-            if (professor != null) {
-                professor.setUnit(unit);
-            } else {
-                System.out.println("professor not find");
-                return;
-            }
-            System.out.println("please insert your faculty between 'math' or 'computer'");
-            String fc = scanner.next();
-//            employeeSystem.insertCourse(ids, this.name, unit, pro, fc);
+            Professor professor = findProfessor();
+            employeeSystem.insertCourse(this.name, unit, professor);
         } catch (InputMismatchException e) {
             System.out.println("your unit course is not true");
             scanner.reset();
         }
     }
 
-    private Professor findProfessor(String name) {
-        return professorList.stream().filter(p -> p.getName().equals(name)).findFirst().orElse(null);
+    private Professor findProfessor() {
+        while (true) {
+            try {
+                System.out.println("\t\t insert professor name ");
+                String name = scanner.nextLine();
+                return professorList.stream().filter(p -> p.getName().equals(name)).findFirst().orElseThrow();
+            } catch (Exception e) {
+                e.printStackTrace();
+                continue;
+            }
+        }
     }
+
 
     public void deleteStudent() {
         try {
