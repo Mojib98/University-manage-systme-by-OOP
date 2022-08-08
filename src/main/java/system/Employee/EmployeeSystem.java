@@ -82,6 +82,14 @@ public class EmployeeSystem {
 
         }
     }
+    public void modifyEmplyee(Employee employee,Integer index) {
+        try {
+            emplyeeList.set(index,employee);
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+
+        }
+    }
 
     public void insertProfessor(String user, String password, String name, Date date,
                                 String nationaCode, Status status, Faculty faculty) {
@@ -97,6 +105,14 @@ public class EmployeeSystem {
         checker(faculty);
         Professor professor = new Professor(name, id, date, nationaCode, status, user, password, faculty);
         professorList.add(professor);
+    }
+    public void modifyProfessor(Professor professor,Integer index) {
+        try {
+            professorList.set(index,professor);
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+
+        }
     }
 
     public void removeProfessor(Professor professor) {
