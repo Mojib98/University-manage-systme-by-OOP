@@ -37,8 +37,7 @@ public class EmployeeApp {
         System.out.println("please insert name");
         this.name = scanner.nextLine();
         this.date1 = getDate();
-        System.out.println("please insert national code");
-        this.nationalCode = scanner.nextLine();
+        this.nationalCode = getNationalCode();
     }
 
     public void insertProfessor() {
@@ -290,6 +289,20 @@ public class EmployeeApp {
                 System.out.println("insert like pattern");
                 continue;
 
+            }
+        }
+
+    }
+
+    private String getNationalCode() {
+        while (true) {
+            System.out.println("please insert national code");
+            String nationalCode = scanner.nextLine();
+            if (nationalCode.matches("^[0-9]*$"))
+                return nationalCode;
+            else {
+                scanner.next();
+                continue;
             }
         }
 
