@@ -15,7 +15,7 @@ public class Student extends Person {
     private String user;
     private String password;
     private Faculty faculty;
-    private int units;
+    private int units =0;
     private List<SectionCourse> courseList = new ArrayList<>();
     private Integer lastScore;
 

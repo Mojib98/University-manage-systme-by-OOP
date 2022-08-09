@@ -16,6 +16,9 @@ public class StudentSystem {
         System.out.println(student);
     }
     //delete Course after Added
+    public void removeCourse(){
+
+    }
 
 
     public void setStudent(Student student) {
