@@ -4,20 +4,32 @@ import modul.Course;
 import modul.SectionCourse;
 import modul.Student;
 
+import java.util.Optional;
+
 public class StudentSystem {
-    Student student;
+    private Student student;
 
 
     public void selectCourse(Course course) {
         SectionCourse sectionCourse = new SectionCourse(course);
-        student.insertCourse(sectionCourse);
+        if (isUniqCourse(sectionCourse))
+            throw new RuntimeException("this course is pass");
+        else
+            student.insertCourse(sectionCourse);
     }
-    public void myInfo(){
+
+    public void myInfo() {
         System.out.println(student);
     }
-    //delete Course after Added
-    public void removeCourse(){
 
+    //delete Course after Added
+    public void removeCourse() {
+
+    }
+
+    private Boolean isUniqCourse(SectionCourse sectionCourse) {
+        Optional<SectionCourse> sectionCourse1 = student.findCourse(sectionCourse);
+        return sectionCourse1.isPresent();
     }
 
 

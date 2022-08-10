@@ -3,6 +3,8 @@ package applecation;
 import modul.Course;
 import modul.Student;
 import system.student.StudentSystem;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
@@ -12,6 +14,7 @@ public class StudentApp {
     private Student student;
     private final StudentSystem studentSystem;
     private final Scanner scanner;
+    private List<Course> myFacultyCourse;
 
     public StudentApp(List<Course> list) {
         this.list = list;
@@ -20,14 +23,14 @@ public class StudentApp {
     }
 
     public void selectCourse() {
-        var listMyfaculty=list.stream().filter((c)->c.getFaculty()
+        var listMyfaculty = list.stream().filter((c) -> c.getFaculty()
                 .equals(this.student.getFaculty())).collect(Collectors.toList());
         listMyfaculty.forEach(System.out::println);
         studentSystem.setStudent(student);
         System.out.println("please insert name");
         String name = scanner.next();
         Course course = listMyfaculty.stream().filter(course1 -> course1.getName().equals(name))
-                .findFirst().orElseThrow(()->new RuntimeException("course not find"));
+                .findFirst().orElseThrow(() -> new RuntimeException("course not find"));
         if (course != null) {
             studentSystem.selectCourse(course);
         }
@@ -50,17 +53,20 @@ public class StudentApp {
 
     public void setStudent(Student student) {
         this.student = student;
-        studentSystem.setStudent(student);
+        this.studentSystem.setStudent(student);
+        this.myFacultyCourse =list.stream().filter((c) -> c.getFaculty()
+                .equals(this.student.getFaculty())).collect(Collectors.toList());
     }
-    public void removeCourse(){
-        var listMyfaculty=list.stream().filter((c)->c.getFaculty()
+
+    public void removeCourse() {
+        var listMyfaculty = list.stream().filter((c) -> c.getFaculty()
                 .equals(this.student.getFaculty())).collect(Collectors.toList());
         listMyfaculty.forEach(System.out::println);
         studentSystem.setStudent(student);
         System.out.println("please insert name");
         String name = scanner.next();
         Course course = listMyfaculty.stream().filter(course1 -> course1.getName().equals(name))
-                .findFirst().orElseThrow(()->new RuntimeException("course not find"));
+                .findFirst().orElseThrow(() -> new RuntimeException("course not find"));
         if (course != null) {
             studentSystem.selectCourse(course);
         }

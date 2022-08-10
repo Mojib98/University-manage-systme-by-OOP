@@ -6,6 +6,7 @@ import modul.enumeration.Faculty;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 @Setter
@@ -106,4 +107,7 @@ public class Student extends Person {
 /*    public boolean find() {
         return value % 2 == 0;
     }*/
+    public Optional<SectionCourse> findCourse(SectionCourse sectionCourse){
+        return courseList.stream().filter(sectionCourse1 -> sectionCourse1.equals(sectionCourse1)).findFirst();
+    }
 }
