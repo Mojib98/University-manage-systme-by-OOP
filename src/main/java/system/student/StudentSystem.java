@@ -23,7 +23,9 @@ public class StudentSystem {
     }
 
     //delete Course after Added
-    public void removeCourse() {
+    public void removeCourse(Course course) {
+        SectionCourse sectionCourse = new SectionCourse(course);
+        student.remove(course.getName());
 
     }
 

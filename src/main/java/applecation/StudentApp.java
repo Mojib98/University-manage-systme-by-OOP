@@ -68,7 +68,7 @@ public class StudentApp {
         Course course = listMyfaculty.stream().filter(course1 -> course1.getName().equals(name))
                 .findFirst().orElseThrow(() -> new RuntimeException("course not find"));
         if (course != null) {
-            studentSystem.selectCourse(course);
+            studentSystem.removeCourse(course);
         }
     }
 }
