@@ -13,7 +13,11 @@ public class ProfessorSystem {
     private Professor professor;
 
     public void showMyStudent() {
-        var myStudents=myStudent.stream().filter(student -> student.getFaculty().equals(professor.getFaculty()));
+        var myStudents = myStudent.stream()
+                .filter(student -> student.getCourseList().stream()
+                        .anyMatch(sectionCourse -> sectionCourse.getCourse().getProfessorName()
+                                .equals(this.professor)))
+                .collect(Collectors.toList());
     }
 
     public void insertScore(String id, Integer courseId, Integer score) {
