@@ -5,6 +5,7 @@ import modul.SectionCourse;
 import modul.Student;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ProfessorSystem {
     private List<SectionCourse> sectionCourses;
@@ -12,11 +13,7 @@ public class ProfessorSystem {
     private Professor professor;
 
     public void showMyStudent() {
-      /*  myStudent.stream().filter((student)->student.getCourseList().stream().filter(
-                (sectionCourse ->
-                     sectionCourse.getCourse().getProfessorName().equals(professor.getName())
-                )*/
-
+        var myStudents=myStudent.stream().filter(student -> student.getFaculty().equals(professor.getFaculty()));
     }
 
     public void insertScore(String id, Integer courseId, Integer score) {
