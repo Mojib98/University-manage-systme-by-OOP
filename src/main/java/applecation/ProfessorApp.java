@@ -1,4 +1,3 @@
-/*
 package applecation;
 
 import modul.SectionCourse;
@@ -36,7 +35,7 @@ public class ProfessorApp {
         for (Student student:AllStudent){
             List<SectionCourse> list =student.getCourseList();
             for (SectionCourse sectionCourse:list){
-                if (sectionCourse.getProfessorName().equals(name)){
+                if (sectionCourse.getCourse().getProfessorName().equals(name)){
                     myStudent.add(student);
                     break;
                 }
@@ -44,4 +43,3 @@ public class ProfessorApp {
         }
     }
 }
-*/
