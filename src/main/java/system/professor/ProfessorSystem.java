@@ -31,11 +31,15 @@ public class ProfessorSystem {
 
     private List<SectionCourse> getSectionCourses(String id) {
         List<SectionCourse> list = null;
-        for (Student student : myStudent) {
+        list=myStudent.stream().filter(student -> student.getId().equals(id))
+                .map(students ->students.getCourseList())
+                .findAny()
+                .get();
+      /*  for (Student student : myStudent) {
             if (student.getId().equals(id))
                 list = student.getCourseList();
             break;
-        }
+        }*/
         return list;
     }
 
