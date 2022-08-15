@@ -13,20 +13,31 @@ public class ProfessorSystem {
     private Professor professor;
 
     public void showMyStudent() {
-        var myStudents = myStudent.stream()
+         myStudent = myStudent.stream()
                 .filter(student -> student.getCourseList().stream()
                         .anyMatch(sectionCourse -> sectionCourse.getCourse().getProfessorName()
                                 .equals(this.professor)))
                 .collect(Collectors.toList());
+         myStudent.stream().forEach(System.out::println);
+
     }
 
     public void insertScore(String id, Integer courseId, Integer score) {
-        List<SectionCourse> list = getSectionCourses(id);
+        var student  =myStudent.stream()
+                .filter(student -> student.getId().equals(id))
+                .findFirst();
+        if (student.isPresent()){
+            var course = student.get().getCourseList().stream()
+                    .filter(sectionCourse -> sectionCourse.getCourse().getId()==courseId).findFirst();
+            if (course.isPresent())
+                course.get().setGrade(score);
+        }
+    /*    List<SectionCourse> list = getSectionCourses(id);
         for (SectionCourse sectionCourse : list) {
             if (sectionCourse.getCourse().getId() == courseId)
                 sectionCourse.setGrade(score);
             break;
-        }
+        }*/
     }
 
     private List<SectionCourse> getSectionCourses(String id) {
