@@ -55,7 +55,7 @@ public class ProfessorSystem {
     }
 
     public void seeMyInformation(Professor professor) {
-        System.out.println(professor);
+        System.out.println(professor.getSalary());
     }
     //find every thing
 }
