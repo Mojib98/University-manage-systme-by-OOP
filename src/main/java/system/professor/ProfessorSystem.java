@@ -24,7 +24,7 @@ public class ProfessorSystem {
 
     public void insertScore(String id, Integer courseId, Integer score) {
         var student  =myStudent.stream()
-                .filter(student -> student.getId().equals(id))
+                .filter(studentForGrade ->studentForGrade.getId().equals(id))
                 .findFirst();
         if (student.isPresent()){
             var course = student.get().getCourseList().stream()
